@@ -1,5 +1,5 @@
 # Default Project
-Default Project - ьн standard project to start any layout. It will be gradually updated and supplemented, this is not the final version.
+Default Project - my standard project to start any layout. It will be gradually updated and supplemented, this is not the final version.
 
 <details>
  <summary>RU Описание</summary>
