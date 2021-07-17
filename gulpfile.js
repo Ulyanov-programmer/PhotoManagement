@@ -17,14 +17,14 @@ let paths = {
         html: [`${sourceFolder}/*.html`, `!${sourceFolder}/_*.html`],
         css: `${sourceFolder}/scss/style.scss`,
         scripts: `${sourceFolder}/scripts/script.js`,
-        images: `${sourceFolder}/images/**/*.{jpg, png, svg, gif, ico, webp}`,
+        images: `${sourceFolder}/images/**/*.{jpg,png,svg,gif,ico,webp}`,
         fonts: `${sourceFolder}/fonts/*.ttf`,
     },
     watch: {
         html: `${sourceFolder}/**/*.html`,
         css: `${sourceFolder}/scss/**/*.scss`,
         scripts: `${sourceFolder}/scripts/**/*.js`,
-        images: `${sourceFolder}/images/**/*.{jpg, png, svg, gif, ico, webp}`,
+        images: `${sourceFolder}/images/**/*.{jpg,png,svg,gif,ico,webp}`,
     },
     clean: `./${projectFolder}/`,
 }
@@ -45,7 +45,8 @@ let { scr, dest } = require('gulp'),
     webpHtml = require('gulp-webp-html'),
     // webpCss = require('gulp-webpcss'),
     ttf2woff = require('gulp-ttf2woff'),
-    ttf2woff2 = require('gulp-ttf2woff2');
+    ttf2woff2 = require('gulp-ttf2woff2'),
+    fonter = require('gulp-fonter');
 
 
 function browserSync(params) {
@@ -98,6 +99,7 @@ function clean() {
 function scripts() {
     return gulp.src(paths.scr.scripts)
         .pipe(fileinclude())
+        
         //save scripts
         .pipe(dest(paths.build.scripts))
 
@@ -133,11 +135,14 @@ function fonts() {
         .pipe(ttf2woff2())
         .pipe(dest(paths.build.fonts));
 }
+
 function fontsStyle() {
     let file_content = fs.readFileSync(sourceFolder + '/scss/fonts.scss');
+
     if (file_content == '') {
         fs.writeFile(sourceFolder + '/scss/fonts.scss', '', cb);
         return fs.readdir(paths.build.fonts, function (err, items) {
+
             if (items) {
                 let c_fontname;
                 for (var i = 0; i < items.length; i++) {
@@ -151,9 +156,17 @@ function fontsStyle() {
             }
         })
     }
+    function cb() { }
 }
 
-function cb() { }
+// Call this task via terminal to convert .otf to .ttf => gulp otfTottf
+gulp.task('otfTottf', function () {
+    return gulp.src([sourceFolder + '/fonts/*.otf'])
+        .pipe(fonter({
+            formats: ['ttf'],
+        }))
+        .pipe(dest(sourceFolder + '/fonts/'));
+});
 
 
 let build = gulp.series(clean, gulp.parallel(scripts, css, html, images, fonts), fontsStyle);
