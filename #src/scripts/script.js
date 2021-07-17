@@ -5,21 +5,31 @@ let innerWindowWigth = window.innerWidth;
 let innerWindowHeight = window.innerWidth;
 
 // ? If you see an error here, it's normal.
-@@include('_spoiler.js');
+
 @@include('_isMobile.js');
 
-function showOrHideNavmenu(e) {
-    const navmenu = document.querySelector('.navmenu');
+// function showOrHideNavmenu(e) {
+//     const navmenu = document.querySelector('.navmenu');
 
-    if (navmenu !== undefined) {
-        burger.classList.toggle('active');
-        body.classList.toggle('fixed');
-        navmenu.classList.toggle('navmenu-fullscreen');
+//     if (navmenu !== undefined) {
+//         burger.classList.toggle('active');
+//         body.classList.toggle('fixed');
+//         navmenu.classList.toggle('navmenu-fullscreen');
+//     }
+// }
+// const burger = document.querySelector('#burgerButton');
+// burger.addEventListener('click', showOrHideNavmenu);
+
+function showOrHideSubmenu(e) {
+    const submenu = document.querySelector('.navmenu__submenu');
+
+    if (submenu !== undefined) {
+        activateSubmenuButton.classList.toggle('active');
+        submenu.classList.toggle('show');
     }
 }
-const burger = document.querySelector('#burgerButton');
-burger.addEventListener('click', showOrHideNavmenu);
-
+const activateSubmenuButton = document.getElementById('submenu-open-button');
+activateSubmenuButton.addEventListener('click', showOrHideSubmenu);
 
 function headerToFixed(e) {
     // Calculating the degree of scrolling in pixels, 

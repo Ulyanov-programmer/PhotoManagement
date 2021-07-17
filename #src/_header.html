@@ -1,13 +1,42 @@
-<header class="header">
+<header class="header fixed-header">
     <div class="header__body container">
-        <a href="#" class="logo"></a>
-        
+        <a href="#" class="logo">
+            <img src="images/logo.svg" alt="logo">
+        </a>
+
         <nav class="navmenu">
-            <ul class='navmenu__items list'>
-                <li class='list__item'></li>
-                <li class='list__item'></li>
-                <li class='list__item'></li>
-            </ul>
+            <div class="navmenu__body">
+
+                <!-- One Page site navmenu -->
+                <ul class='navmenu__list'>
+                    <li data-scroll-to="block1">block1</li>
+                    <li data-scroll-to="block1">block2</li>
+                    <li data-scroll-to="block1">block3</li>
+                    <!-- Subnavmenu -->
+                    <li id="submenu-open-button">
+                        submenu
+                        <ul class='navmenu__submenu navmenu__list'>
+                            <li>
+                                <a href="#">block1</a>
+                            </li>
+                            <li data-scroll-to="how-it-works">block1</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Multiple page site navmenu -->
+                <ul class='navmenu__list'>
+                    <li>
+                        <a href="#">block1</a>
+                    </li>
+                    <li>
+                        <a href="#">block2</a>
+                    </li>
+                    <li>
+                        <a href="#">block3</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </div>
 </header>

@@ -13,21 +13,22 @@
     font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
 }
 @import "nullstyle";
+@import "form";
 @import "fonts";
+// @import "iconFonts";
 @import "header";
 @import "footer";
 
 $mainFontFamily: "";
-$boldFontFamily: "";
-$boldItFontFamily: "";
-$maxWidth: 900px;
+$fontColor: black;
+$background: white;
+
+$maxWidth: 900;
 
 body {
     display: flex;
     flex-direction: column;
     height: 100%;
-
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     &.fixed {
         overflow: hidden;
@@ -36,51 +37,28 @@ body {
 .main {
     display: flex;
     justify-content: center;
-    flex: 1 0 auto;
+    flex: 1 0 100vh;
 
-    background-color: rgb(212, 193, 157);
+    background: $background;
 
     &__body {
-        background-color: wheat;
+        background: $background;
+        filter: brightness(90%);
 
-        @media (min-width: 1200px) {
-            flex: 0 0 70%;
-        }
-        @media (min-width: 768px) and (max-width: 1199px) {
-            flex: 0 0 700px;
-        }
-        @media (min-width: 426px) and (max-width: 768px) {
-            flex: 0 0 80%;
-        }
-        @media (max-width: 425px) {
-            width: 90%;
-        }
+        
     }
 }
-.button {
-    background-color: #f1ac11;
-    text-align: center;
-    width: 83px;
-    height: 17px;
-    font-family: "";
-    text-transform: uppercase;
-    font-size: 8px;
-    border-radius: 0;
-}
-.button-container {
-    width: max-content;
-    background-color: #b9902f;
-
-    .button {
-        position: relative;
-        bottom: 2px;
-        transition: all 0.1s;
-
-        &:hover {
-            background-color: #ffc94d;
-        }
-        &:active {
-            bottom: 0;
-        }
+.container {
+    @media (min-width: 1200px) {
+        flex: 0 0 80%;
+    }
+    @media (min-width: $maxWidth + px) and (max-width: 1199px) {
+        flex: 0 0 $maxWidth + px;
+    }
+    @media (min-width: 426px) and (max-width: $maxWidth + px) {
+        flex: 0 0 80%;
+    }
+    @media (max-width: 425px) {
+        width: 95%;
     }
 }
