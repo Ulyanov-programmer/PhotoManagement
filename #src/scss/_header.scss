@@ -1,4 +1,4 @@
-$background: whitesmoke;
+$background: rgb(99, 99, 99);
 $maxwidth: 900;
 
 .header {
@@ -8,7 +8,7 @@ $maxwidth: 900;
     display: flex;
     justify-content: center;
 
-    // background: $background;
+    background: $background;
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
 
     flex: 0 0 50px;
@@ -168,8 +168,8 @@ $maxwidth: 900;
 }
 .logo {
     z-index: 5;
+    height: 97%;
     img {
-        width: 100px;
-        height: 100px;
+        width: 50px;
     }
 }
