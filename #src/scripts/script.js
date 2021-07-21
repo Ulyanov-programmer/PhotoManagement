@@ -5,7 +5,6 @@ let innerWindowWigth = window.innerWidth;
 let innerWindowHeight = window.innerWidth;
 
 // ? If you see an error here, it's normal.
-
 @@include('_isMobile.js');
 
 // function showOrHideNavmenu(e) {
