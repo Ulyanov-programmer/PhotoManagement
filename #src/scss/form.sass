@@ -1,0 +1,100 @@
+$maxWidth: 850
+$mainFontFamily: "Open Sans"
+$buttonFontFamily: "Lato"
+$buttonColor: #ebb14d
+
+.form
+    display: flex
+    margin: 5px 5px 30px 5px
+
+    @media (min-width: 320px) and (max-width: 900px)
+        flex-flow: row wrap
+        justify-content: space-evenly
+
+        input,
+        i,
+        .button
+            width: 100%
+
+    i
+        display: flex
+        width: auto
+        align-items: center
+
+        &::before
+            position: relative
+            left: 15px
+            width: 0
+            z-index: 1
+
+    input
+        height: 35px
+        width: 210px
+
+        @include adaptiv-font(11, 10)
+        font-family: $mainFontFamily
+
+        padding: 10px 10px 10px 30px
+        margin: 8px 0px 8px 6px
+        border-radius: 2px
+
+        &:focus
+            filter: brightness(83%)
+
+            transition: all 0.2s ease 0s
+
+    .submit-button
+        @extend input
+        padding: 0px 0px 0px 0px
+
+        width: 160px
+
+        &:hover
+            color: black
+
+        &:active
+            color: black
+
+        &:focus
+            filter: none
+            background: $buttonColor
+
+.button
+    display: flex
+    justify-content: center
+    align-items: center
+
+    color: white
+    font-family: $buttonFontFamily
+    text-transform: uppercase
+    @include adaptiv-font(9, 10)
+
+    min-width: 80px
+    height: 7px
+    padding: 5px 5px 5px 5px
+
+    border-radius: 1px
+    background-color: $buttonColor
+
+    &:hover
+        filter: brightness(90%)
+        color: black
+
+        transition: all 0.15s ease 0s
+
+a
+    display: flex
+    justify-content: center
+    align-items: center
+
+.button-container
+    width: max-content
+    background-color: lighten($buttonColor, 90%)
+
+    .button
+        position: relative
+        bottom: 2px
+        transition: all 0.1s
+
+        &:active
+            bottom: 0

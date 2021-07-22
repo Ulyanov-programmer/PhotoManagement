@@ -1,0 +1,43 @@
+$mainFontFamily: Roboto
+
+.footer
+    background: goldenrod
+
+    display: flex
+    justify-content: center
+    min-height: 100px
+
+    font-family: $mainFontFamily
+    font-size: 15px
+    line-height: 1
+    text-transform: uppercase
+
+    // background: url("../images/footerBackground.webp") 0 0 / 100% 100% no-repeat;
+
+    @media (max-width: 768px)
+        flex: 1 0 auto
+        // background: none;
+
+    &__body
+        display: flex
+        justify-content: center
+        align-items: center
+
+        background-color: rgb(255, 193, 36)
+
+        @media (min-width: 1200px)
+            width: 80%
+
+        @media (min-width: 768px) and (max-width: 1199px)
+            width: 700px
+
+        @media (min-width: 426px) and (max-width: 768px)
+            width: 90%
+
+        @media (max-width: 425px)
+            width: 90%
+
+.contacts-block
+    &__title
+
+    &__list
