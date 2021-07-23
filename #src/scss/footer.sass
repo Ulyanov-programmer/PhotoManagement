@@ -1,7 +1,8 @@
+@import "mixins"
 $mainFontFamily: Roboto
 
 .footer
-    background: goldenrod
+    background: rgb(99, 99, 99)
 
     display: flex
     justify-content: center
@@ -10,7 +11,6 @@ $mainFontFamily: Roboto
     font-family: $mainFontFamily
     font-size: 15px
     line-height: 1
-    text-transform: uppercase
 
     // background: url("../images/footerBackground.webp") 0 0 / 100% 100% no-repeat;
 
@@ -21,9 +21,7 @@ $mainFontFamily: Roboto
     &__body
         display: flex
         justify-content: center
-        align-items: center
-
-        background-color: rgb(255, 193, 36)
+        align-items: center 
 
         @media (min-width: 1200px)
             width: 80%
@@ -38,6 +36,25 @@ $mainFontFamily: Roboto
             width: 90%
 
 .contacts-block
-    &__title
+    margin: 0px 10px 0px 0px
 
     &__list
+
+.list
+
+    &__item
+        margin: 0px 10px 0px 0px
+        a
+            color: white
+
+            &:hover
+                text-decoration: underline
+
+    // .email
+
+.socials
+    display: flex
+
+    &__item
+        @include hAndW(30px, 30px)
+        margin: 0px 10px 0px 0px
