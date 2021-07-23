@@ -188,6 +188,7 @@ h6 {
       -ms-flex-align: center;
           align-items: center;
   padding: 0px 10px 0px 10px;
+  line-height: 1.2;
   cursor: pointer;
   -webkit-transition: all 0.2s ease 0s;
   -o-transition: all 0.2s ease 0s;
@@ -609,8 +610,8 @@ body.fixed {
 }
 
 .my-work__preview img {
-  width: 100%;
-  height: 480px;
+  height: 85%;
+  width: 85%;
 }
 
 .my-work ul {
