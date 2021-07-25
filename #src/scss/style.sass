@@ -24,10 +24,9 @@ body
         overflow: hidden
 
 .main
-    display: flex
-    justify-content: center
+    /* Comment this if you use the swiper */
+    // display: flex
     width: 100%
-    flex: 1 0 100vh
 
     background: $background
 
@@ -71,12 +70,10 @@ body
         padding: 0px 0px 13px 0px
 
 .content
-    display: flex
-    justify-content: center
-
     background: rgb(90, 90, 90)
 
     &__body
+        margin: 0 auto
         padding: 15px 15px 15px 15px
 
 .my-works
@@ -94,6 +91,8 @@ body
         padding: 0px 8px 15px 8px
 
 .my-work
+    min-width: 0
+
     color: white
     *
         padding: 5px 0px 5px 0px
@@ -101,11 +100,13 @@ body
     &__name
         display: inline-block
         color: white
+        width: 100%
 
         &:hover
             text-decoration: underline
 
     &__preview
+        display: block
         position: relative
         img
             @include hAndW(85%, 85%)
@@ -128,7 +129,7 @@ body
 
 .swiper-button-next, .swiper-button-prev
     display: inline-block
-    top: auto !important
+    top: 43% !important
     padding: 35px 35px 35px 35px
 
     background: #261d1d5e
@@ -143,7 +144,7 @@ body
         background: #261d1d
 
         &::after
-            
+
 .swiper-button-prev
     &:hover
         padding: 35px 55px 35px 35px

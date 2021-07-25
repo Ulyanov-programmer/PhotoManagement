@@ -425,9 +425,6 @@ h6 {
 }
 
 a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -481,16 +478,8 @@ body.fixed {
 }
 
 .main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  /* Comment this if you use the swiper */
   width: 100%;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 100vh;
-          flex: 1 0 100vh;
   background: white;
 }
 
@@ -559,16 +548,11 @@ body.fixed {
 }
 
 .content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   background: #5a5a5a;
 }
 
 .content__body {
+  margin: 0 auto;
   padding: 15px 15px 15px 15px;
 }
 
@@ -589,6 +573,7 @@ body.fixed {
 }
 
 .my-work {
+  min-width: 0;
   color: white;
 }
 
@@ -599,6 +584,7 @@ body.fixed {
 .my-work__name {
   display: inline-block;
   color: white;
+  width: 100%;
 }
 
 .my-work__name:hover {
@@ -606,6 +592,7 @@ body.fixed {
 }
 
 .my-work__preview {
+  display: block;
   position: relative;
 }
 
@@ -637,7 +624,7 @@ body.fixed {
 .swiper-button-next,
 .swiper-button-prev {
   display: inline-block;
-  top: auto !important;
+  top: 43% !important;
   padding: 35px 35px 35px 35px;
   background: #261d1d5e;
   -webkit-transition: all 1s ease;
