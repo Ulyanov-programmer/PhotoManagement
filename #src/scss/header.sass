@@ -3,9 +3,6 @@ $background: rgb(99, 99, 99)
 $maxWidth: 900
 
 .header
-    position: fixed
-    top: 0
-    left: 0
     display: flex
     justify-content: center
     color: white
@@ -13,7 +10,7 @@ $maxWidth: 900
     background: $background
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5)
 
-    flex: 0 0 50px
+    
     z-index: 5
 
     &__body
@@ -28,7 +25,6 @@ $maxWidth: 900
     @include hAndW(50px, 100%)
 
     top: 0
-    left:
     background: $background
 
     // &::before 
@@ -39,6 +35,23 @@ $maxWidth: 900
     //     @include hAndW(50px, 100%)
     //     background: rgb(233, 232, 232)
     //     z-index: 2
+
+.sidepanel
+    position: absolute
+    height: 100%
+    left: 0
+    top: 0
+
+    &__body
+        @include hAndW (100%,50px)
+    
+    ul
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-flow: column nowrap
+
 
 .header__burger
     display: none
@@ -166,7 +179,7 @@ $maxWidth: 900
                 // }
 
 .logo
-    z-index: 5
+    z-index: 10
     height: 99%
 
     img
