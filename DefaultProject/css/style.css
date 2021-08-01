@@ -637,6 +637,41 @@ body.fixed {
           flex-flow: column nowrap;
 }
 
+.modal-window {
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  left: 0;
+  background: #00000046;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.modal-window.active {
+  overflow: visible;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-window__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 @media (min-width: 1200px) {
   .footer__body {
     width: 80%;

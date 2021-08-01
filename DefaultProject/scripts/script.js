@@ -82,6 +82,27 @@ for (let scrollButton of scrollButtons) {
     scrollButton.addEventListener('click', scrollToElement);
 }
 
+function showOrHideModal(e) {
+    let modalWindow = document.getElementById('modal-window1');
+
+    if (modalWindow !== undefined) {
+        modalWindow.classList.add("active");
+        body.classList.add("fixed");
+    }
+    modalWindow.addEventListener("click", function (e) {
+        /*
+            Checks if the pressed element has a CONTENT parent, if not, closes the modal.
+        */
+        if (!e.target.closest('.modal-window__content')) {
+
+            modalWindow.classList.remove("active");
+            body.classList.remove("fixed");
+        }
+    })
+}
+const showModalButton = document.querySelector('#show-modal');
+showModalButton.addEventListener('click', showOrHideModal);
+
 /* ? the headerToFixed function
 function headerToFixed(e) {
     // Calculating the degree of scrolling in pixels,

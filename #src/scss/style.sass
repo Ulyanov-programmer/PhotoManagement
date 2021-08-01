@@ -40,7 +40,7 @@ body
     display: flex
     justify-content: center
     align-items: center
-    
+
     @include hAndW(100vh, auto)
     min-height: 500px
 
@@ -76,7 +76,7 @@ body
         background: #261d1d
 
         &::after
-            
+
 .swiper-button-prev
     &:hover
         padding: 35px 55px 35px 35px
@@ -109,3 +109,27 @@ body
         justify-content: center
         align-items: center
         flex-flow: column nowrap
+
+.modal-window
+    position: fixed
+    z-index: 15
+    top: 0
+    left: 0
+    background: #00000046 
+    @include hAndW (100%,100%)
+
+    overflow: hidden
+    opacity: 0
+    pointer-events: none
+    transition: all 0.5s ease
+
+    &.active
+        overflow: visible
+        opacity: 1
+        pointer-events: all
+
+    &__body
+        display: flex
+        height: 100%
+        justify-content: center
+        align-items: center
