@@ -57,6 +57,13 @@ textarea {
   font-family: inherit;
 }
 
+input:focus-visible,
+.form .submit-button:focus-visible,
+button:focus-visible,
+textarea:focus-visible {
+  outline: 0px;
+}
+
 input::-ms-clear,
 .form .submit-button::-ms-clear {
   display: none;
@@ -64,6 +71,7 @@ input::-ms-clear,
 
 button {
   cursor: pointer;
+  background: none;
 }
 
 button::-moz-focus-inner {
@@ -128,35 +136,6 @@ h6 {
   width: 100%;
   top: 0;
   background: #636363;
-}
-
-.sidepanel {
-  position: absolute;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
-
-.sidepanel__body {
-  height: 100%;
-  width: 50px;
-}
-
-.sidepanel ul {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
 }
 
 .navmenu__body {
@@ -285,6 +264,42 @@ h6 {
 
 .fullscreen-navmenu.active {
   left: 0;
+}
+
+.searchbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #fff;
+  height: 30px;
+}
+
+.searchbar * {
+  height: 100%;
+}
+
+.searchbar__input {
+  padding: 0px 0px 0px 10px;
+}
+
+.searchbar__input:focus {
+  background: #d8d5d5;
+}
+
+.searchbar__submit {
+  padding: 0px 10px 0px 10px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.searchbar__submit:hover {
+  background: #acabab;
+}
+
+.searchbar__submit img {
+  height: 16px;
+  width: 16px;
 }
 
 .header__burger {
@@ -591,6 +606,35 @@ body.fixed {
 
 .swiper-button-prev:hover {
   padding: 35px 55px 35px 35px;
+}
+
+.sidepanel {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.sidepanel__body {
+  height: 100%;
+  width: 50px;
+}
+
+.sidepanel ul {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
 }
 
 @media (min-width: 1200px) {

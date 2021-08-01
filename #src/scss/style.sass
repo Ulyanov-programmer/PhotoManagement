@@ -93,3 +93,19 @@ body
 
     @media (max-width: 425px)
         width: 95%
+
+.sidepanel
+    position: absolute
+    height: 100%
+    left: 0
+    top: 0
+
+    &__body
+        @include hAndW (100%,50px)
+
+    ul
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-flow: column nowrap

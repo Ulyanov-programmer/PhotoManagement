@@ -36,26 +36,10 @@ $maxWidth: 900
     //     background: rgb(233, 232, 232)
     //     z-index: 2
 
-.sidepanel
-    position: absolute
-    height: 100%
-    left: 0
-    top: 0
-
-    &__body
-        @include hAndW (100%,50px)
-
-    ul
-        height: 100%
-        display: flex
-        justify-content: center
-        align-items: center
-        flex-flow: column nowrap
-
 .navmenu
     @media (max-width: 600px)
         display: none
-        
+
     &__body
         display: flex
         height: 100%
@@ -147,6 +131,33 @@ $maxWidth: 900
         left: 0
 
     &__body
+
+.searchbar
+    display: flex
+    // ? Reverse elements
+    // flex-flow: row-reverse nowrap
+
+    background: #fff
+    height: 30px
+    
+    *
+        height: 100%
+
+    &__input
+        padding: 0px 0px 0px 10px
+        &:focus
+            background: #d8d5d5
+
+    &__submit
+        padding: 0px 10px 0px 10px
+        transition: all 0.3s ease
+
+        &:hover
+            background: #acabab 
+            
+        img
+            @include hAndW (16px,16px)
+
 
 .header__burger
     display: none
