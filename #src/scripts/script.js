@@ -7,17 +7,17 @@ let innerWindowHeight = window.innerWidth;
 // ? If you see an error here, it's normal.
 @@include('_isMobile.js');
 
-// function showOrHideNavmenu(e) {
-//     const navmenu = document.querySelector('.navmenu');
+function showOrHideFullscreenNav(e) {
+    const fsNavmenu = document.querySelector('.fullscreen-navmenu');
 
-//     if (navmenu !== undefined) {
-//         burger.classList.toggle('active');
-//         body.classList.toggle('fixed');
-//         navmenu.classList.toggle('navmenu-fullscreen');
-//     }
-// }
-// const burger = document.querySelector('#burgerButton');
-// burger.addEventListener('click', showOrHideNavmenu);
+    if (fsNavmenu !== undefined) {
+        burger.classList.toggle('active');
+        body.classList.toggle('fixed');
+        fsNavmenu.classList.toggle('active');
+    }
+}
+const burger = document.querySelector('#burgerButton');
+burger.addEventListener('click', showOrHideFullscreenNav);
 
 function showOrHideSubmenu(e) {
     const submenu = document.querySelector('.navmenu__submenu');

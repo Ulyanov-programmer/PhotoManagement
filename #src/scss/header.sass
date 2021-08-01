@@ -10,12 +10,12 @@ $maxWidth: 900
     background: $background
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5)
 
-    
     z-index: 5
 
     &__body
         display: flex
         justify-content: space-between
+        padding: 10px 0px 10px 0px
 
         // background: $background 
         // filter: brightness(110%) 
@@ -44,7 +44,7 @@ $maxWidth: 900
 
     &__body
         @include hAndW (100%,50px)
-    
+
     ul
         height: 100%
         display: flex
@@ -52,58 +52,10 @@ $maxWidth: 900
         align-items: center
         flex-flow: column nowrap
 
-
-.header__burger
-    display: none
-    border-radius: 0px
-    background-color: transparent
-
-    @media (max-width: 600px)
-        z-index: 5
-        display: block
-        position: relative
-        top: 0
-        left: 0
-        cursor: pointer
-
-        width: 40px
-        height: 20px
-        border-top: 0.2em solid white
-        border-bottom: 0.2em solid white
-
-        margin: 0px 16px 0px 0px
-        transition: all 1s
-
-        span
-            position: absolute
-            top: 0
-            left: 0
-            height: 0.2em
-            width: 100%
-            background-color: #fff
-            transition: all 0.5s
-
-        span
-            top: 50%
-            transform: scale(1) translate(0px, -50%)
-
-    @media (max-width: 430px)
-        width: 35px
-        height: 20px
-
-    &.burger-black
-        border-color: black
-        transition: all 0.5s
-
-        span
-            background-color: black
-
-    &.active
-        transition: all 1s
-        width: 30px
-        transform: rotateZ(450deg)
-
 .navmenu
+    @media (max-width: 600px)
+        display: none
+        
     &__body
         display: flex
         height: 100%
@@ -177,6 +129,74 @@ $maxWidth: 900
 
                 // a {
                 // }
+
+.fullscreen-navmenu
+    position: fixed
+    top: 0
+    left: -100%
+    @include hAndW (100%,100%)
+
+    display: flex
+    justify-content: center
+    align-items: center
+
+    background: #000000ad
+    transition: all 0.5s ease
+
+    &.active
+        left: 0
+
+    &__body
+
+.header__burger
+    display: none
+    border-radius: 0px
+    background-color: transparent
+
+    @media (max-width: 600px)
+        z-index: 5
+        display: block
+        position: relative
+        top: 0
+        left: 0
+        cursor: pointer
+
+        width: 40px
+        height: 20px
+        border-top: 0.2em solid white
+        border-bottom: 0.2em solid white
+
+        margin: 0px 16px 0px 0px
+        transition: all 1s
+
+        span
+            position: absolute
+            top: 0
+            left: 0
+            height: 0.2em
+            width: 100%
+            background-color: #fff
+            transition: all 0.5s
+
+        span
+            top: 50%
+            transform: scale(1) translate(0px, -50%)
+
+    @media (max-width: 430px)
+        width: 35px
+        height: 20px
+
+    &.burger-black
+        border-color: black
+        transition: all 0.5s
+
+        span
+            background-color: black
+
+    &.active
+        transition: all 1s
+        width: 30px
+        transform: rotateZ(450deg)
 
 .logo
     z-index: 10
