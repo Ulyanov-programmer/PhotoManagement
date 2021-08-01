@@ -46,10 +46,6 @@ html {
   scrollbar-width: none;
 }
 
-html ::-webkit-scrollbar {
-  width: 0px;
-}
-
 input,
 .form .submit-button,
 button,

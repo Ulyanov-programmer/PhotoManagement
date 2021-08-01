@@ -82,6 +82,19 @@ for (let scrollButton of scrollButtons) {
     scrollButton.addEventListener('click', scrollToElement);
 }
 
+function closeModalWindow(modalWindow) {
+    modalWindow.classList.remove("active");
+    body.classList.remove("fixed");
+}
+function bodyScrollLock() {
+    let lockPaddingValue = window.innerWidth - document.querySelector('body').offsetWidth + 'px';
+
+    for (let index = 0; index < lockPadding.length; index++){
+        const el = lockPadding[index];
+    }
+
+    undlo
+}
 function showOrHideModal(e) {
     let modalWindow = document.getElementById('modal-window1');
 
@@ -89,14 +102,12 @@ function showOrHideModal(e) {
         modalWindow.classList.add("active");
         body.classList.add("fixed");
     }
-    modalWindow.addEventListener("click", function (e) {
-        /*
-            Checks if the pressed element has a CONTENT parent, if not, closes the modal.
-        */
-        if (!e.target.closest('.modal-window__content')) {
 
-            modalWindow.classList.remove("active");
-            body.classList.remove("fixed");
+    modalWindow.addEventListener("click", function (e) {
+
+        // Checks if the pressed element has a CONTENT parent, if not, closes the modal.
+        if (!e.target.closest('.modal-window__content')) {
+            closeModalWindow(modalWindow);
         }
     })
 }
