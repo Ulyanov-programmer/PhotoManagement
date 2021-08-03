@@ -10,6 +10,7 @@ let innerWindowHeight = window.innerWidth;
 
 function showOrHideFullscreenNav(e) {
     const fsNavmenu = document.querySelector('.fullscreen-navmenu');
+    let scrollbarWidth = window.innerWidth - document.querySelector('html').clientWidth;
 
     if (fsNavmenu !== undefined) {
         burger.classList.toggle('active');

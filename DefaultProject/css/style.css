@@ -44,18 +44,12 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-input,
-.form .submit-button,
-button,
-textarea {
-  font-family: inherit;
-}
-
 input:focus-visible,
 .form .submit-button:focus-visible,
 button:focus-visible,
 textarea:focus-visible {
   outline: 0px;
+  font-family: inherit;
 }
 
 input::-ms-clear,
@@ -130,6 +124,17 @@ h6 {
   width: 100%;
   top: 0;
   background: #636363;
+}
+
+.fixed-header::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background: #e9e8e8;
+  z-index: 2;
 }
 
 .navmenu__body {
@@ -239,6 +244,7 @@ h6 {
   position: fixed;
   top: 0;
   left: -100%;
+  z-index: -1;
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -251,6 +257,7 @@ h6 {
       -ms-flex-align: center;
           align-items: center;
   background: #000000ad;
+  overflow: auto;
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -635,13 +642,14 @@ body.fixed {
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .modal-window.active {
   overflow: visible;
+  overflow-y: scroll;
   opacity: 1;
   pointer-events: all;
 }
@@ -741,15 +749,24 @@ button {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 426px) and (max-width: 768px) {
+  html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html ::-webkit-scrollbar {
+    width: 0px;
+  }
+
   .footer__body {
-    width: 700px;
+    width: 90%;
   }
 }
 
-@media (min-width: 426px) and (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .footer__body {
-    width: 90%;
+    width: 700px;
   }
 }
 
