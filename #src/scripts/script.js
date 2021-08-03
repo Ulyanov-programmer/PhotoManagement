@@ -4,8 +4,9 @@ let body = document.body;
 let innerWindowWigth = window.innerWidth;
 let innerWindowHeight = window.innerWidth;
 
+
 // ? If you see an error here, it's normal.
-@@include('_isMobile.js');
+@@include('_modalWindow.js');
 
 function showOrHideFullscreenNav(e) {
     const fsNavmenu = document.querySelector('.fullscreen-navmenu');
@@ -32,49 +33,16 @@ activateSubmenuButton.addEventListener('click', showOrHideSubmenu);
 
 // ? Use this if you have scroll buttons.
 function scrollToElement(eventData) {
-    let scrollElement = document.querySelector(`.${eventData.target.dataset.scrollTo}`);
+    let scrollElement = document.querySelector(eventData.target.dataset.scrollTo);
 
     if (scrollElement !== undefined) {
         scrollElement.scrollIntoView({ block: "start", behavior: "smooth" });
     }
 }
-
 let scrollButtons = document.querySelectorAll('[data-scroll-to]');
 for (let scrollButton of scrollButtons) {
     scrollButton.addEventListener('click', scrollToElement);
 }
-
-function closeModalWindow(modalWindow) {
-    modalWindow.classList.remove("active");
-    body.classList.remove("fixed");
-}
-function bodyScrollLock() {
-    let lockPaddingValue = window.innerWidth - document.querySelector('body').offsetWidth + 'px';
-
-    for (let index = 0; index < lockPadding.length; index++){
-        const el = lockPadding[index];
-    }
-
-    undlo
-}
-function showOrHideModal(e) {
-    let modalWindow = document.getElementById('modal-window1');
-
-    if (modalWindow !== undefined) {
-        modalWindow.classList.add("active");
-        body.classList.add("fixed");
-    }
-
-    modalWindow.addEventListener("click", function (e) {
-
-        // Checks if the pressed element has a CONTENT parent, if not, closes the modal.
-        if (!e.target.closest('.modal-window__content')) {
-            closeModalWindow(modalWindow);
-        }
-    })
-}
-const showModalButton = document.querySelector('#show-modal');
-showModalButton.addEventListener('click', showOrHideModal);
 
 /* ? the headerToFixed function
 function headerToFixed(e) {
