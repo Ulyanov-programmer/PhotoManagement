@@ -33,7 +33,7 @@ activateSubmenuButton.addEventListener('click', showOrHideSubmenu);
 
 // ? Use this if you have scroll buttons.
 function scrollToElement(eventData) {
-    let scrollElement = document.querySelector(eventData.target.dataset.scrollTo);
+    let scrollElement = document.querySelector('.' + eventData.target.dataset.scrollTo);
 
     if (scrollElement !== undefined) {
         scrollElement.scrollIntoView({ block: "start", behavior: "smooth" });

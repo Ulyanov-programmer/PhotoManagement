@@ -28,6 +28,19 @@
             <section class='content'>
                 <div class="content__body">
                     <div class="block">
+                        <section class='post'>
+                            <div class="post__image">
+                                <img src="images/logo.png" alt="postLogo">
+                            </div>
+                            <div class="post__title">Title</div>
+                            <div class="post__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+                                ipsa? Doloribus error quasi ipsum ipsam distinctio ex iste aspernatur debitis!
+                                Explicabo, excepturi. Repellendus reiciendis assumenda ullam minus quaerat numquam
+                                nihil.</div>
+                            <div class="post__footer">
+                                <span>footer</span>
+                            </div>
+                        </section>
                         <!-- ! Swiper
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
@@ -43,6 +56,21 @@
     </main>
 
     @@include('_footer.html')
+    
+    <section id="modal_1" class='modal-window'>
+        <div class="modal-window__body">
+            <div class="modal-window__content">
+                <button type='button' class="modal-closer">close me</button>
+    
+                <form class="searchbar">
+                    <input class="searchbar__input" type='text' placeholder='input' required>
+                    <button class="searchbar__submit" type='submit'>
+                        <img src="images/icons/loupe.svg" alt="search">
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 </body>
 @@include('_scripts.html')
 

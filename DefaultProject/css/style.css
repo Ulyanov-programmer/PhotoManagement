@@ -538,7 +538,6 @@ body.fixed {
 
 .main {
   width: 100%;
-  min-height: 100vh;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 100vh;
           flex: 1 0 100vh;
@@ -664,6 +663,10 @@ body.fixed {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+button {
+  color: #fff;
 }
 
 @media (min-width: 1200px) {
