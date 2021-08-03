@@ -534,10 +534,6 @@ body.fixed {
 }
 
 .main {
-<<<<<<< HEAD
-  /* Comment this if you use the swiper */
-=======
->>>>>>> DefaultTemplate
   width: 100%;
   background: white;
 }
@@ -569,82 +565,8 @@ body.fixed {
 }
 
 .content {
-<<<<<<< HEAD
-  background: #5a5a5a;
-}
-
-.content__body {
-  margin: 0 auto;
-  padding: 15px 15px 15px 15px;
-}
-
-.my-works__body {
-  text-align: center;
-}
-
-.my-works__title {
-  font-weight: 600;
-  font-size: 30px;
-  padding: 0px 8px 10px 8px;
-}
-
-.my-works__subtitle {
-  display: inline-block;
-  font-size: 18px;
-  padding: 0px 8px 15px 8px;
-}
-
-.my-work {
-  min-width: 0;
-  color: white;
-}
-
-.my-work * {
-  padding: 5px 0px 5px 0px;
-}
-
-.my-work__name {
-  display: inline-block;
-  color: white;
-  width: 100%;
-}
-
-.my-work__name:hover {
-  text-decoration: underline;
-}
-
-.my-work__preview {
-  display: block;
-  position: relative;
-}
-
-.my-work__preview img {
-  height: 85%;
-  width: 85%;
-}
-
-.my-work ul {
-  text-align: left;
-  font-size: 15px;
-}
-
-.my-work ul::before {
-  display: inline-block;
-  width: 100%;
-  padding: 0px 0px 20px 0px;
-  content: "Когда я делал эту работу, я изучил:";
-}
-
-.my-work ul li {
-  line-height: 0.9;
-}
-
-.my-work ul li::before {
-  content: ": ";
-=======
   text-align: center;
   background: #5a5a5a;
->>>>>>> DefaultTemplate
 }
 
 .swiper-button-next,
