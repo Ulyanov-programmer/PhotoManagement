@@ -64,11 +64,8 @@ function closeModal(modalWindow, bodyIsScrollable) {
 function toggleBodyScroll(toggleScrollOn) {
 
     if (toggleScrollOn) {
-        // Prevents the modal shifting after it is closed.
-        setTimeout(function () {
-            body.style.paddingRight = 0;
-            body.classList.remove("fixed");
-        }, transitionTimeout * 1000);
+        body.style.paddingRight = 0;
+        body.classList.remove("fixed");
     } else {
         body.style.paddingRight = scrollbarWidth + 'px';
         body.classList.add('fixed');

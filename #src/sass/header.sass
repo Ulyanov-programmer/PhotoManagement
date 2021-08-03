@@ -27,14 +27,14 @@ $maxWidth: 900
     top: 0
     background: $background
 
-    // &::before 
-    //     content: ("")
-    //     position: fixed
-    //     top: 0
-    //     left: 0
-    //     @include hAndW(50px, 100%)
-    //     background: rgb(233, 232, 232)
-    //     z-index: 2
+    &::before 
+        content: ("")
+        position: fixed
+        top: 0
+        left: 0
+        @include hAndW(50px, 100%)
+        background: rgb(233, 232, 232)
+        z-index: 2
 
 .navmenu
     @media (max-width: 600px)
@@ -118,6 +118,7 @@ $maxWidth: 900
     position: fixed
     top: 0
     left: -100%
+    z-index: -1
     @include hAndW (100%,100%)
 
     display: flex
@@ -125,6 +126,7 @@ $maxWidth: 900
     align-items: center
 
     background: #000000ad
+    overflow: auto
     transition: all 0.5s ease
 
     &.active
