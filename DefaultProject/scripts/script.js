@@ -30,7 +30,11 @@ for (const modalCloser of modalClosers) {
 
 // When the body loses scrolling, the page may shift.
 // To fix this, it will be padded in the size of the scrollbar.
-let scrollbarWidth = window.innerWidth - document.querySelector('html').clientWidth;
+function returnScrollbarWidth() {
+    let scrollbarWidth = window.innerWidth - document.querySelector('html').clientWidth;
+    
+    return scrollbarWidth;
+}
 
 // This is to prevent the new modal from opening too quickly.
 let unlock = true;
@@ -75,7 +79,7 @@ function toggleBodyScroll(toggleScrollOn) {
         body.style.paddingRight = 0;
         body.classList.remove("fixed");
     } else {
-        body.style.paddingRight = scrollbarWidth + 'px';
+        body.style.paddingRight = returnScrollbarWidth() + 'px';
         body.classList.add('fixed');
     }
 
@@ -97,11 +101,13 @@ document.addEventListener('keydown', function (key) {
 
 function showOrHideFullscreenNav(e) {
     const fsNavmenu = document.querySelector('.fullscreen-navmenu');
-    let scrollbarWidth = window.innerWidth - document.querySelector('html').clientWidth;
+    let sbWidth = returnScrollbarWidth();
 
     if (fsNavmenu !== undefined) {
         burger.classList.toggle('active');
         body.classList.toggle('fixed');
+        body.style.paddingRight = sbWidth + 'px';
+        
         fsNavmenu.classList.toggle('active');
     }
 }

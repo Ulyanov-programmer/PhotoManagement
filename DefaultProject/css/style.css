@@ -648,7 +648,6 @@ body.fixed {
 }
 
 .modal-window.active {
-  overflow: visible;
   overflow-y: scroll;
   opacity: 1;
   pointer-events: all;

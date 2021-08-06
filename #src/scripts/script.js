@@ -10,11 +10,13 @@ let innerWindowHeight = window.innerWidth;
 
 function showOrHideFullscreenNav(e) {
     const fsNavmenu = document.querySelector('.fullscreen-navmenu');
-    let scrollbarWidth = window.innerWidth - document.querySelector('html').clientWidth;
+    let sbWidth = returnScrollbarWidth();
 
     if (fsNavmenu !== undefined) {
         burger.classList.toggle('active');
         body.classList.toggle('fixed');
+        body.style.paddingRight = sbWidth + 'px';
+        
         fsNavmenu.classList.toggle('active');
     }
 }
