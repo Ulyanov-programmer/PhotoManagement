@@ -160,8 +160,8 @@ function showOrHideSubmenu(e) {
     // Hides all previously active menus and menu buttons.
     for (let i = 0; i < allSubmenu.length; i++) {
 
-        if (allSubmenu[i] !== menuButton &&
-            allMenuButtons[i] !== menuButton.firstElementChild) {
+        if (allSubmenu[i] !== menuButton.firstElementChild &&
+            allMenuButtons[i] !== menuButton) {
 
             allMenuButtons[i].classList.remove('show');
             allSubmenu[i].classList.remove('show');
