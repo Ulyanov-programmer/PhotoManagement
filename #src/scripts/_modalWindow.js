@@ -23,7 +23,7 @@ for (const modalCloser of modalClosers) {
 // When the body loses scrolling, the page may shift.
 // To fix this, it will be padded in the size of the scrollbar.
 function returnScrollbarWidth() {
-    let scrollbarWidth = window.innerWidth - document.querySelector('html').clientWidth;
+    let scrollbarWidth = innerWindowWidth() - document.querySelector('html').clientWidth;
     
     return scrollbarWidth;
 }

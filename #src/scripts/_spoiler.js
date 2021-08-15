@@ -1,54 +1,34 @@
-let spoilerContainers = [
-    document.querySelector('.contacts-block'),
-    document.querySelector('.subscribe-block'),
-];
+let spoilerButtons = document.querySelectorAll('[data-spoiler-button]');
+let spoilerContentElements = document.querySelectorAll('[data-spoiler-content]');
 
-var spoilersOne = Array.prototype.slice.call(document.querySelectorAll('.contacts-block__list')),
-    spoilersTwo = Array.prototype.slice.call(document.querySelectorAll('.subscribe-block__body'))
+function toggleToSpoilers(e) {
+    if (spoilerContentElements.length > 0 &&
+        spoilerButtons.length == spoilerContentElements.length) {
+        for (let index = 0; index < spoilerContentElements.length; index++) {
 
-var allSpoilers = spoilersOne.concat(spoilersTwo);
+            if (window.innerWidth <= 900) {
+                spoilerContentElements[index].classList.add('spoiler-content');
+                spoilerButtons[index].classList.add('spoiler-button');
+            } else {
+                spoilerContentElements[index].classList.remove('spoiler-content');
+                spoilerButtons[index].classList.remove('spoiler-button');
+            }
+        }
 
-function toggleSpoilers(event) {
-    let windowWigth = 0;
-
-    if (event === undefined) {
-        windowWigth = window.innerWidth;
-    } else {
-        windowWigth = event.target.innerWidth;
-    }
-
-    if (spoilerContainers !== undefined && allSpoilers !== undefined) {
-
-        if (windowWigth <= 768) {
-            spoilerContainers.forEach(container => {
-                container.classList.add('spoiler-container');
-            });
-            allSpoilers.forEach(spoiler => {
-                spoiler.classList.add('spoiler');
-                spoiler.lastElementChild.classList.add('spoiler-content');
-            });
-        } else {
-            spoilerContainers.forEach(container => {
-                container.classList.remove('spoiler-container');
-            });
-            allSpoilers.forEach(spoiler => {
-                spoiler.classList.remove('spoiler');
-                spoiler.lastElementChild.classList.remove('spoiler-content');
-            });
+        for (let spoilerButton of spoilerButtons) {
+            spoilerButton.addEventListener('click', toggleSpoilerState);
         }
     }
-    allSpoilers.forEach(element => {
-        element.firstElementChild.addEventListener('click', toggleSpoilerState);
-    });
 }
 
 function toggleSpoilerState(event) {
-    let targetSpoiler = event.target;
-    let spoilerContent = targetSpoiler.nextElementSibling;
+    let targetSpoilerButton = event.target;
+    let spoilerContainer = targetSpoilerButton.nextElementSibling;
 
-    targetSpoiler.classList.toggle('active');
-    spoilerContent.classList.toggle('active');
+    targetSpoilerButton.classList.toggle('active');
+    spoilerContainer.classList.toggle('active');
 }
 
-toggleSpoilers();
-window.addEventListener(`resize`, toggleSpoilers);
+// Determines spoilers when the page is loaded and when it is resized.
+toggleToSpoilers();
+window.addEventListener(`resize`, toggleToSpoilers);

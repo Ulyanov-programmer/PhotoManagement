@@ -1,8 +1,8 @@
 'use strict'
 
 let body = document.body;
-let innerWindowWigth = window.innerWidth;
-let innerWindowHeight = window.innerWidth;
+let innerWindowWidth = () => window.innerWidth;
+let innerWindowHeight = () => window.innerWidth;
 
 
 // ? If you see an error here, it's normal.
@@ -31,7 +31,7 @@ for (const modalCloser of modalClosers) {
 // When the body loses scrolling, the page may shift.
 // To fix this, it will be padded in the size of the scrollbar.
 function returnScrollbarWidth() {
-    let scrollbarWidth = window.innerWidth - document.querySelector('html').clientWidth;
+    let scrollbarWidth = innerWindowWidth() - document.querySelector('html').clientWidth;
     
     return scrollbarWidth;
 }
@@ -98,39 +98,97 @@ document.addEventListener('keydown', function (key) {
 });
 
 ;
-
 function showOrHideFullscreenNav(e) {
     const fsNavmenu = document.querySelector('.fullscreen-navmenu');
-    let sbWidth = returnScrollbarWidth();
+    let sbWidth = innerWindowWidth() - document.querySelector('html').clientWidth;
+    let header = document.querySelector('header');
 
     if (fsNavmenu !== undefined) {
         burger.classList.toggle('active');
+        
         body.classList.toggle('fixed');
         body.style.paddingRight = sbWidth + 'px';
-        
+
+        header.classList.toggle('fixed-header');
+        header.style.paddingRight = sbWidth + 'px';
+
         fsNavmenu.classList.toggle('active');
     }
 }
-const burger = document.querySelector('#burgerButton');
-burger.addEventListener('click', showOrHideFullscreenNav);
+const burger = document.getElementById('burgerButton');
+burger.addEventListener('click', showOrHideFullscreenNav);;
+let spoilerButtons = document.querySelectorAll('[data-spoiler-button]');
+let spoilerContentElements = document.querySelectorAll('[data-spoiler-content]');
 
-function showOrHideSubmenu(e) {
-    const submenu = document.querySelector('.navmenu__submenu');
+function toggleToSpoilers(e) {
+    if (spoilerContentElements.length > 0 &&
+        spoilerButtons.length == spoilerContentElements.length) {
+        for (let index = 0; index < spoilerContentElements.length; index++) {
 
-    if (submenu !== undefined) {
-        activateSubmenuButton.classList.toggle('active');
-        submenu.classList.toggle('show');
+            if (window.innerWidth <= 900) {
+                spoilerContentElements[index].classList.add('spoiler-content');
+                spoilerButtons[index].classList.add('spoiler-button');
+            } else {
+                spoilerContentElements[index].classList.remove('spoiler-content');
+                spoilerButtons[index].classList.remove('spoiler-button');
+            }
+        }
+
+        for (let spoilerButton of spoilerButtons) {
+            spoilerButton.addEventListener('click', toggleSpoilerState);
+        }
     }
 }
-const activateSubmenuButton = document.getElementById('submenu-open-button');
-activateSubmenuButton.addEventListener('click', showOrHideSubmenu);
+
+function toggleSpoilerState(event) {
+    let targetSpoilerButton = event.target;
+    let spoilerContainer = targetSpoilerButton.nextElementSibling;
+
+    targetSpoilerButton.classList.toggle('active');
+    spoilerContainer.classList.toggle('active');
+}
+
+// Determines spoilers when the page is loaded and when it is resized.
+toggleToSpoilers();
+window.addEventListener(`resize`, toggleToSpoilers);;
+
+function showOrHideSubmenu(e) {
+    const menuButton = e.target;
+    const allSubmenu = document.querySelectorAll('.navmenu__submenu');
+    const allMenuButtons = document.querySelectorAll('.submenu-open-button');
+
+    // Hides all previously active menus and menu buttons.
+    for (let i = 0; i < allSubmenu.length; i++) {
+
+        if (allSubmenu[i] !== menuButton &&
+            allMenuButtons[i] !== menuButton.firstElementChild) {
+
+            allMenuButtons[i].classList.remove('show');
+            allSubmenu[i].classList.remove('show');
+        }
+    }
+
+    if (menuButton.firstElementChild !== undefined) {
+        menuButton.classList.toggle('active');
+        menuButton.firstElementChild.classList.toggle('show');
+    }
+}
+const activateSubmenuButtons = document.querySelectorAll('.submenu-open-button');
+for (let submenuButton of activateSubmenuButtons) {
+    submenuButton.addEventListener('click', showOrHideSubmenu);
+}
 
 // ? Use this if you have scroll buttons.
 function scrollToElement(eventData) {
     let scrollElement = document.querySelector('.' + eventData.target.dataset.scrollTo);
 
     if (scrollElement !== undefined) {
-        scrollElement.scrollIntoView({ block: "start", behavior: "smooth" });
+        let scrolltop = window.pageYOffset + scrollElement.getBoundingClientRect().top;
+
+        window.scrollTo({
+            top: scrolltop - 50,
+            behavior: "smooth"
+        });
     }
 }
 let scrollButtons = document.querySelectorAll('[data-scroll-to]');
