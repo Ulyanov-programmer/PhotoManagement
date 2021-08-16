@@ -5,7 +5,7 @@
 "title": "Photo Management"
 })
 
-<body>
+<body class="fixed">
     <main class="main">
         <div class="main__body">
             <section class='sidepanel'>
@@ -24,8 +24,8 @@
                     </form>
                     <section class='menu sidepanel__element'>
                         <div class='menu__body'>
-                            <span class='menu__name'>categories</span>
-                            <ul>
+                            <span data-spoiler-button class='menu__name spoiler-button'>categories</span>
+                            <ul data-spoiler-content class="spoiler-content">
                                 <li class="menu__category">Photos</li>
                                 <li class="menu__category">Videos</li>
                                 <li class="menu__category">Projects</li>
@@ -34,8 +34,8 @@
                     </section>
                     <section class='menu sidepanel__element'>
                         <div class='menu__body'>
-                            <span class='menu__name _expandable'>Albums</span>
-                            <ul>
+                            <span data-spoiler-button class='menu__name spoiler-button _expandable'>Albums</span>
+                            <ul data-spoiler-content class="spoiler-content">
                                 <li class="menu__category">Subcarpathia 2016</li>
                                 <li class="menu__category">Summer 2015</li>
                                 <li class="menu__category">Aspen 2015</li>
@@ -54,10 +54,42 @@
                 <div class="content__body">
                     <section class='album'>
                         <div class='album__body'>
-                            <span class="album__name">Subcarpathia 2016</span>
-                            <span class="album__count">8</span>
+                            <div class="album__header">
+                                <div class="album__about">
+                                    <span class="album__name">Subcarpathia 2016</span>
+                                    <span class="album__count">8</span>
+                                </div>
+                                <div class="general-buttons">
+                                    <i class="general-button">
+                                        <img src="images/icons/Slideshow.png" alt="slideshow">
+                                    </i>
+                                    <i class="general-button icon">
+                                        <img src="images/icons/Share.png" alt="slideshow">
+                                    </i>
+                                </div>
+                            </div>
 
                             <div class="album__content">
+                                <article class="album-element">
+                                    <img src="images/content/content1.jpg" class="album-element__preview" alt="content">
+                                    <span class="album-element__create-date">25.02.2016</span>
+                                </article>
+                                <article class="album-element">
+                                    <img src="images/content/content1.jpg" class="album-element__preview" alt="content">
+                                    <span class="album-element__create-date">25.02.2016</span>
+                                </article>
+                                <article class="album-element">
+                                    <img src="images/content/content1.jpg" class="album-element__preview" alt="content">
+                                    <span class="album-element__create-date">25.02.2016</span>
+                                </article>
+                                <article class="album-element">
+                                    <img src="images/content/content1.jpg" class="album-element__preview" alt="content">
+                                    <span class="album-element__create-date">25.02.2016</span>
+                                </article>
+                                <article class="album-element">
+                                    <img src="images/content/content1.jpg" class="album-element__preview" alt="content">
+                                    <span class="album-element__create-date">25.02.2016</span>
+                                </article>
                                 <article class="album-element">
                                     <img src="images/content/content1.jpg" class="album-element__preview" alt="content">
                                     <span class="album-element__create-date">25.02.2016</span>
@@ -67,8 +99,12 @@
                     </section>
                     <section class='album'>
                         <div class='album__body'>
-                            <span class="album__name">Subcarpathia 2016</span>
-                            <span class="album__count">8</span>
+                            <div class="album__header">
+                                <div class="album__about">
+                                    <span class="album__name">Subcarpathia 2016</span>
+                                    <span class="album__count">8</span>
+                                </div>
+                            </div>
 
                             <div class="album__content">
                                 <article class="album-element">

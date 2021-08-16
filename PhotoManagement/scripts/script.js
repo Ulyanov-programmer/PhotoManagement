@@ -1,6 +1,7 @@
 'use strict'
 let body = document.body;
 let innerWindowWidth = () => window.innerWidth;
+let innerWindowHeight = () => window.innerHeight;
 
 // ? If you see an error here, it's normal.
 // Variables for work modal window 
@@ -103,7 +104,7 @@ function toggleToSpoilers(e) {
         spoilerButtons.length == spoilerContentElements.length) {
         for (let index = 0; index < spoilerContentElements.length; index++) {
 
-            if (window.innerWidth <= 900) {
+            if (innerWindowHeight() <= 500) {
                 spoilerContentElements[index].classList.add('spoiler-content');
                 spoilerButtons[index].classList.add('spoiler-button');
             } else {

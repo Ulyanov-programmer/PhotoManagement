@@ -1,5 +1,5 @@
 $mainFontFamily: "HelveticaNeueCyr Roman"
-$fontColor: #000
+$fontColor: #fff
 $fontSize: 14
 $background: #fafafa
 $containerWidth: 1200
@@ -12,6 +12,7 @@ $buttonColor: #ea5a5a
 @import "fonts"
 @import "iconFonts"
 @import "_spoiler"
+@import "rangeInput"
 
 body
     height: 100%
@@ -28,72 +29,187 @@ body
     background: $background
 
     &__body
+        display: flex
+        height: 100vh
         background: $background
 
 .content
-    text-align: center
+    flex: 1 0 30%
 
-    background: rgb(90, 90, 90)
+    background: $secondBackground
 
     &__body
 
 .sidepanel
-
+    padding: 30px 0px 0px 0px
+    max-width: 220px
+    min-width: 220px
     background: #272631
+    overflow: auto
 
     &__body
+        display: flex
+        height: 100%
+        flex-flow: column nowrap
+        justify-content: space-between
 
     &__element
+        width: 100%
 
 .profile
 
     &__body
+        padding: 0px 0px 10px 0px
+        display: flex
+        flex-flow: column nowrap
+        justify-content: center
+        align-items: center
 
     &__image
-        @include hAndW (100px,100px)
+        @include hAndW (80px,80px)
+        border-radius: 50%
+        margin: 0px 0px 18px 0px
 
     &__name
+        @include adaptive-property ('font-size',16, 16)
+        font-weight: 600
+        letter-spacing: 0.8px
+        margin: 0px 0px 5px 0px
 
     &__files-counter
+        color: #a3a2a8
+        margin: 0px 0px 17px 0px
 
     &__upluad-photo
+        color: #fff
+        text-transform: uppercase
+        border: 2px solid $buttonColor
+        background: $buttonColor
+        padding: 10px 50px 10px 50px
+        border-radius: 20px
+
+        transition: all 0.1s ease
+        &:hover
+            background: #fff
+            color: $buttonColor
 
 .searchbar
+    background: #19181e
+    padding: 15px 15px 15px 15px
 
     &__submit
+        padding: 0px 5px 0px 0px
+        color: #444444
+        transition: all 0.2s ease
+        &:hover
+            color: #fff
+
+        &:before
+            display: flex
+            justify-content: center
+            align-items: center
+            @include hAndW (20px,20px)
 
     &__input
+        transition: all 0.1s ease
+        color: #6d6d6d
+        background: #19181e
+
+        padding: 5px 5px 5px 0px
+        &:hover, &:focus
+            color: #fff
 
 .menu
 
     &__body
+        padding: 10px 0px 10px 0px
 
     &__name
+        display: inline-block
+        padding: 0px 0px 20px 20px
+        letter-spacing: 0.7px
+        color: #d6d5df
+        font-weight: 600
 
     &__category
+        padding: 10px 0px 10px 32px
+        border-left: 3px solid #ffffff00
+        color: #d6d5df
 
-    &_expandable
+        transition: all 0.1s ease
+        cursor: pointer
+        &:hover
+            border-color: $buttonColor
+            color: #a3a2a8
+
+    &._expandable
 
 .size-block-settings
 
     &__body
+        display: flex
+        justify-content: space-between
+        padding: 20px 20px 20px 20px
+
+        &:before
+            @include hAndW (20px,20px)
+            content: ('')
+            background: url('../images/icons/smaller.png') no-repeat 100% / contain
+
+        &::after
+            @include hAndW (20px,20px)
+            content: ('')
+            background: url('../images/icons/bigger.png') no-repeat 100% / contain
 
 .album
+    padding: 30px 30px 30px 30px
+
+    &__header
+        display: flex
+        justify-content: space-between
+        padding: 0px 0px 5px 0px
 
     &__body
+        display: flex
+        flex-flow: column nowrap
 
     &__name
+        color: #444444
+        @include adaptive-property ('font-size',22, 22)
+        letter-spacing: 1.1px
 
     &__count
+        color: #c0c0c0
+
+        &:before
+            content: '('
+        &:after
+            content: ' photos)'
 
     &__content
+        display: flex
+        flex-flow: row wrap
+        margin: 0px -10px 0px -10px
+
+.general-buttons
+    .general-button
+        img
+            @include hAndW (20px,20px)
 
 .album-element
+    display: flex
+    flex-flow: column nowrap
+    margin: 10px 10px 10px 10px
 
     &__preview
         @include hAndW (100px,100px)
+        margin: 0px 0px 10px 0px
+
+        &:hover
+            box-shadow: 0 0 15px rgba(0,0,0,0.5)
 
     &__create-date
+        color: #c0c0c0
 
 .modal-window
     position: fixed
@@ -119,48 +235,3 @@ body
         justify-content: center
         align-items: center
 
-.searchbar
-    display: flex
-
-    background: #1e1d26
-    height: 30px
-
-    *
-        height: 100%
-
-    &__input
-        padding: 0px 0px 0px 10px
-        &:focus
-            background: #d8d5d5
-
-    &__submit
-        padding: 0px 10px 0px 10px
-        transition: all 0.3s ease
-
-        &:hover
-            background: #acabab
-
-        img
-            @include hAndW (16px,16px)
-
-.button
-    display: flex
-    justify-content: center
-    align-items: center
-
-    color: white
-    text-transform: uppercase
-    @include adaptive-property("font-size",15, 10)
-
-    min-width: 80px
-    height: 7px
-    padding: 5px 5px 5px 5px
-
-    border-radius: 1px
-    background-color: $buttonColor
-
-    &:hover
-        filter: brightness(90%)
-        color: black
-
-        transition: all 0.15s ease 0s

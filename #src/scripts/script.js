@@ -1,6 +1,7 @@
 'use strict'
 let body = document.body;
 let innerWindowWidth = () => window.innerWidth;
+let innerWindowHeight = () => window.innerHeight;
 
 // ? If you see an error here, it's normal.
 @@include('_modalWindow.js');

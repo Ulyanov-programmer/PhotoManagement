@@ -6,7 +6,7 @@ function toggleToSpoilers(e) {
         spoilerButtons.length == spoilerContentElements.length) {
         for (let index = 0; index < spoilerContentElements.length; index++) {
 
-            if (window.innerWidth <= 900) {
+            if (innerWindowHeight() <= 500) {
                 spoilerContentElements[index].classList.add('spoiler-content');
                 spoilerButtons[index].classList.add('spoiler-button');
             } else {
