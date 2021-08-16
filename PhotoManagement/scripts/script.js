@@ -132,7 +132,7 @@ toggleToSpoilers();
 window.addEventListener(`resize`, toggleToSpoilers);;
 
 
-function prependProductActionsMenu(e) {
+function prependActionsMenu(e) {
     let targetProductBody = e.target.firstElementChild;
     let prodActionsClone = productActionsMenu.cloneNode(true);
 
@@ -143,7 +143,7 @@ function prependProductActionsMenu(e) {
         prodActionsClone.classList.add('_active');
     }
 }
-function removeProductActionsMenu(e) {
+function removeActionsMenu(e) {
     // Try to get menu from product => body => actions.
     let actionsMenu = e.target.firstElementChild.firstElementChild;
 

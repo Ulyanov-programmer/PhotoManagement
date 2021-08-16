@@ -34,6 +34,7 @@ body
         background: $background
 
 .content
+    overflow: auto
     flex: 1 0 30%
 
     background: $secondBackground
@@ -199,14 +200,31 @@ body
 .album-element
     display: flex
     flex-flow: column nowrap
+    width: 300px
+
     margin: 10px 10px 10px 10px
 
     &__preview
-        @include hAndW (100px,100px)
+        display: block
+        border-radius: 5px
+        position: relative
+        padding: 0px 0px 100% 0px
         margin: 0px 0px 10px 0px
 
+        transition: all 0.2s ease
         &:hover
             box-shadow: 0 0 15px rgba(0,0,0,0.5)
+
+        *
+            border-radius: 5px
+
+        img
+            position: absolute
+            top: 0
+            left: 0
+            @include hAndW (100%,100%)
+            margin: 0px 0px 10px 0px
+            object-fit: cover
 
     &__create-date
         color: #c0c0c0
@@ -235,3 +253,26 @@ body
         justify-content: center
         align-items: center
 
+.modal-content-info
+    position: absolute
+    bottom: 0
+    left: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 10px 28px 10px 28px
+    @include hAndW (20%,100%)
+
+    background: #a1a0a0e7
+
+    &__body
+        @include adaptive-property ('font-size',12, 12)
+        letter-spacing: 0.6px
+
+        span
+            margin: 0px 5px 0px 0px
+
+    &._non-active
+        overflow: hidden
+        opacity: 0
+        pointer-events: none
