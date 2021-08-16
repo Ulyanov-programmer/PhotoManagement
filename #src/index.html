@@ -2,72 +2,100 @@
 <html lang="en">
 
 @@include('_head.html', {
-"title": "Main"
+"title": "Photo Management"
 })
 
 <body>
-    @@include('_header.html')
-
     <main class="main">
         <div class="main__body">
-            <section class="fullscreen">
-                <div class="fullscreen__body container">
-
-                </div>
-                <!-- ? Use if you need a side menu. -->
-                <section class='sidepanel'>
-                    <div class="sidepanel__body">
-                        <ul class='navmenu__list'>
-                            <li data-scroll-to="block1">кнопка</li>
-                            <li data-scroll-to="block1">кнопка2</li>
-                        </ul>
+            <section class='sidepanel'>
+                <div class="sidepanel__body">
+                    <article class="sidepanel__element profile">
+                        <div class="profile__body">
+                            <img src="images/userAvatar.jpg" class="profile__image"></img>
+                            <span class="profile__name">Amelia Rice</span>
+                            <span class="profile__files-counter">2390</span>
+                            <button class="profile__upluad-photo" type='button'>upload</button>
+                        </div>
+                    </article>
+                    <form class="sidepanel__element searchbar">
+                        <button class="searchbar__submit _icon-searchLoupe" type='submit'></button>
+                        <input class="searchbar__input" type='text' placeholder='Search files' required>
+                    </form>
+                    <section class='menu sidepanel__element'>
+                        <div class='menu__body'>
+                            <span class='menu__name'>categories</span>
+                            <ul>
+                                <li class="menu__category">Photos</li>
+                                <li class="menu__category">Videos</li>
+                                <li class="menu__category">Projects</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class='menu sidepanel__element'>
+                        <div class='menu__body'>
+                            <span class='menu__name _expandable'>Albums</span>
+                            <ul>
+                                <li class="menu__category">Subcarpathia 2016</li>
+                                <li class="menu__category">Summer 2015</li>
+                                <li class="menu__category">Aspen 2015</li>
+                                <li class="menu__category">Croatia 2015</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <div class="sidepanel__element size-block-settings">
+                        <div class="size-block-settings__body">
+                            <input type="range" name="blockSizer" id="blockSizer" min="0" max="100">
+                        </div>
                     </div>
-                </section>
-                <button class="fullscreen__scroll" type='button' data-scroll-to="content">Scroll</button>
+                </div>
             </section>
             <section class='content'>
                 <div class="content__body">
-                    <div class="block">
-                        <section class='post'>
-                            <!-- <div class="post__image">
-                                <img src="images/logo.png" alt="postLogo">
-                            </div> -->
-                            <div class="post__title">Title</div>
-                            <div class="post__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-                                ipsa? Doloribus error quasi ipsum ipsam distinctio ex iste aspernatur debitis!
-                                Explicabo, excepturi. Repellendus reiciendis assumenda ullam minus quaerat numquam
-                                nihil.</div>
-                            <div class="post__footer">
-                                <span>footer</span>
+                    <section class='album'>
+                        <div class='album__body'>
+                            <span class="album__name">Subcarpathia 2016</span>
+                            <span class="album__count">8</span>
+
+                            <div class="album__content">
+                                <article class="album-element">
+                                    <img src="images/content/content1.jpg" class="album-element__preview" alt="content">
+                                    <span class="album-element__create-date">25.02.2016</span>
+                                </article>
                             </div>
-                        </section>
-                        <!-- ! Swiper
-                                <div class="swiper-container">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                        <div class="swiper-slide">
-                                    </div>
-                                </div>
-                            </div> -->
-                    </div>
+                        </div>
+                    </section>
+                    <section class='album'>
+                        <div class='album__body'>
+                            <span class="album__name">Subcarpathia 2016</span>
+                            <span class="album__count">8</span>
+
+                            <div class="album__content">
+                                <article class="album-element">
+                                    <img src="images/content/content2.png" class="album-element__preview" alt="content">
+
+                                    <span class="album-element__create-date">25.02.2016</span>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </section>
         </div>
     </main>
 
-    @@include('_footer.html')
-    
     <section id="modal_1" class='modal-window'>
         <div class="modal-window__body">
             <div class="modal-window__content">
                 <button type='button' class="modal-closer">close me</button>
-    
-                <form class="searchbar">
-                    <input class="searchbar__input" type='text' placeholder='input' required>
-                    <button class="searchbar__submit" type='submit'>
-                        <img src="images/icons/loupe.svg" alt="search">
-                    </button>
-                </form>
+                <!-- ! Swiper
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                <div class="swiper-slide">
+                            </div>
+                        </div>
+                    </div> -->
             </div>
         </div>
     </section>
