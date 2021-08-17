@@ -171,28 +171,30 @@ body
     &__body
         padding: 10px 0px 10px 0px
 
+    &__header
+        display: flex
+        justify-content: space-between
+        padding: 0px 5px 20px 20px
+
     &__name
         line-height: 1.3
         text-transform: uppercase
         display: inline-block
-        padding: 0px 5px 20px 20px
         letter-spacing: 0.7px
         color: #d6d5df
         font-weight: 600
-        &._expandable
-            display: flex
-            justify-content: space-between
-            align-items: center
-            &:after
-                display: inline-block
-                content: ''
-                background: url('../images/icons/addNewButton.png') no-repeat center / contain
-                @include hAndW (15px,15px)
-                margin-right: 20px
-                cursor: pointer
-                @media (max-width: 500px)
-                    display: none
-                    
+
+    .extend-icon
+        display: flex
+        &:after
+            display: inline-block
+            content: ''
+            background: url('../images/icons/addNewButton.png') no-repeat center / contain
+            @include hAndW (15px,15px)
+            margin-right: 20px
+            cursor: pointer
+            @media (max-height: 500px)
+                display: none
 
     &__category
         display: block

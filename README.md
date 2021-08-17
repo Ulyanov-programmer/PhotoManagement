@@ -2,6 +2,8 @@
 Photo Management - created for content editing.
 There is no editing logic, but there is an interface. And a slideshow! Don't forget the slideshow!
 
+By the way, You can see in the repository those commits that are not related to this project. This was due to a bug in the development process, just ignore it.
+
 <img src="readmeFiles/preview.png" width=100% />
 
 <details>
@@ -177,5 +179,5 @@ If you have any questions or suggestions, write to me by email <a href="mailto:c
 
 </details>
 
-[этот сайт на GitHub Pages]: https://ulyanov-programmer.github.io/DefaultProject/DefaultProject
-[this site on GitHub Pages]: https://ulyanov-programmer.github.io/DefaultProject/DefaultProject
+[этот сайт на GitHub Pages]: https://ulyanov-programmer.github.io/PhotoManagement/PhotoManagement/
+[this site on GitHub Pages]: https://ulyanov-programmer.github.io/PhotoManagement/PhotoManagement/

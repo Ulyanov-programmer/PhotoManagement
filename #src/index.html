@@ -20,12 +20,15 @@
                         </div>
                     </article>
                     <form action="#" class="sidepanel__element searchbar">
-                        <button aria-label="search" name="search" class="searchbar__submit _icon-searchLoupe" type='submit'></button>
+                        <button aria-label="search" name="search" class="searchbar__submit _icon-searchLoupe"
+                            type='submit'></button>
                         <input class="searchbar__input" type='text' placeholder='Search files' required>
                     </form>
                     <section class='menu sidepanel__element'>
                         <div class='menu__body'>
-                            <span data-spoiler-button class='menu__name spoiler-button'>Categories</span>
+                            <div class="menu__header">
+                                <span data-spoiler-button class='menu__name spoiler-button'>Categories</span>
+                            </div>
                             <ul data-spoiler-content class="spoiler-content">
                                 <li><a class="menu__category" href="#">Photos</a></li>
                                 <li><a class="menu__category" href="#">Videos</a></li>
@@ -35,7 +38,12 @@
                     </section>
                     <section class='menu sidepanel__element'>
                         <div class='menu__body'>
-                            <span data-spoiler-button class='menu__name spoiler-button _expandable'>Albums</span>
+                            <div class="menu__header">
+                                <span data-spoiler-button class='menu__name spoiler-button'>Albums</span>
+                                <button class="extend-icon" type='button'></button>
+                            </div>
+
+
                             <ul data-spoiler-content class="spoiler-content">
                                 <li><a class="menu__category" href="#">Subcarpathia 2016</a></li>
                                 <li><a class="menu__category" href="#">Summer 2015</a></li>
