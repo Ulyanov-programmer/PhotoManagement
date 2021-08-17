@@ -159,3 +159,41 @@ contentElements.forEach(element => {
     element.addEventListener("mouseenter", appendInfoModalMenu);
     element.addEventListener("mouseleave", removeInfoModalMenu);
 });
+
+function changeContentWidth(inputEvent) {
+    let albumContentWidth = 260;
+    let changeSize = parseInt(inputEvent.currentTarget.value);
+    let newContentWidth;
+
+    if (changeSize >= 0) {
+        newContentWidth = albumContentWidth + changeSize;
+    } else {
+        changeSize = Math.abs(changeSize)
+        newContentWidth = albumContentWidth - changeSize;
+    }
+
+    albumElements.forEach(element => {
+        element.style.width = newContentWidth + "px";
+    });
+}
+function setToDefaultContentWidth() {
+
+}
+const albumElements = document.querySelectorAll('.album-element');
+const rangeInput = document.querySelector('#blockSizer');
+
+rangeInput.addEventListener('input', changeContentWidth);
+// rangeInput.addEventListener('mousedown', function (event) {
+//     if (event.which == 3) {
+//         
+//     }
+// });
+rangeInput.oncontextmenu = function (event) {
+    if (event.which == 3) {
+        albumElements.forEach(element => {
+            element.style.width = '';
+        });
+        rangeInput.value = 0;
+    }
+    return false;
+}
