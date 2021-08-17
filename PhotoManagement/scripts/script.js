@@ -64,20 +64,6 @@ function closeModal(modalWindow, bodyIsScrollable) {
     }
 }
 function toggleBodyScroll(toggleScrollOn) {
-
-    if (toggleScrollOn) {
-        body.style.paddingRight = 0;
-        body.classList.remove("fixed");
-    } else {
-        body.style.paddingRight = returnScrollbarWidth() + 'px';
-        body.classList.add('fixed');
-    }
-
-    unlock = false;
-    // Prevents a new window from opening too quickly.
-    setTimeout(function () {
-        unlock = true;
-    }, transitionTimeout * 1000);
 }
 
 document.addEventListener('keydown', function (key) {

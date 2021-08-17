@@ -64,6 +64,7 @@ body
 .sidepanel
     padding: 30px 0px 0px 0px
     min-width: 220px
+    width: 220px
     background: #272631
     overflow: auto
     /* firefox, i love You! */
@@ -107,11 +108,14 @@ body
         object-fit: cover
 
     &__name
+        line-height: 1.2
+        text-align: center
         @include adaptive-property ('font-size',16, 16)
         font-weight: 600
         margin: 0px 0px 5px 0px
 
     &__files-counter
+        max-width: 220px
         color: #a3a2a8
         margin: 0px 0px 17px 0px
         &:after
@@ -137,6 +141,7 @@ body
 
 .searchbar
     display: flex
+    flex-flow: row wrap
     background: #19181e
     padding: 15px 15px 15px 15px
 
@@ -170,10 +175,24 @@ body
         line-height: 1.3
         text-transform: uppercase
         display: inline-block
-        padding: 0px 0px 20px 20px
+        padding: 0px 5px 20px 20px
         letter-spacing: 0.7px
         color: #d6d5df
         font-weight: 600
+        &._expandable
+            display: flex
+            justify-content: space-between
+            align-items: center
+            &:after
+                display: inline-block
+                content: ''
+                background: url('../images/icons/addNewButton.png') no-repeat center / contain
+                @include hAndW (15px,15px)
+                margin-right: 20px
+                cursor: pointer
+                @media (max-width: 500px)
+                    display: none
+                    
 
     &__category
         display: block
@@ -187,8 +206,6 @@ body
             background: #19181e
             border-color: $buttonColor
             color: #fff
-
-    &._expandable
 
 .size-block-settings
 
@@ -209,8 +226,6 @@ body
             background: url('../images/icons/bigger.png') no-repeat 100% / contain
 
 .album
-    padding: 10px 10px 10px 10px
-
     &__header
         display: flex
         justify-content: space-between
@@ -219,6 +234,7 @@ body
     &__body
         display: flex
         flex-flow: column nowrap
+        padding: 15px 15px 15px 15px
 
     &__name
         color: #444444
@@ -289,7 +305,7 @@ body
     z-index: 15
     top: 0
     left: 0
-    background: #00000046
+    background: #00000071
     @include hAndW (100%,100%)
 
     overflow: hidden
@@ -299,7 +315,6 @@ body
     transition: opacity 0.5s ease
 
     &.active
-        overflow-y: scroll
         opacity: 1
         pointer-events: all
 
@@ -329,11 +344,11 @@ body
     pointer-events: none
 
     &__body
-        @include adaptive-property ('font-size',12, 12)
         letter-spacing: 0.6px
+        @include adaptive-property ('font-size',13, 11)
 
-        span
-            margin: 0px 5px 0px 0px
+    span
+        margin: 0px 5px 0px 0px
 
     &._non-active
     &._active
@@ -353,7 +368,7 @@ body
 
     &__photo
         position: relative
-        padding: 0px 0px 93vh 0px
+        padding: 0px 0px 95vh 0px
         width: auto
         margin: 10px 0px 10px 0px
 
