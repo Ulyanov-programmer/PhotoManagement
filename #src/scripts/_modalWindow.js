@@ -13,13 +13,6 @@ for (let modalLink of modalLinks) {
     });
 }
 
-let modalClosers = document.querySelectorAll('.modal-closer');
-for (const modalCloser of modalClosers) {
-    modalCloser.addEventListener("click", function (e) {
-        closeModal(modalCloser.closest('.modal-window'), true);
-    });
-}
-
 // When the body loses scrolling, the page may shift.
 // To fix this, it will be padded in the size of the scrollbar.
 function returnScrollbarWidth() {

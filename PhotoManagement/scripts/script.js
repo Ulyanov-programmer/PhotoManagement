@@ -1,4 +1,3 @@
-'use strict'
 let body = document.body;
 let innerWindowWidth = () => window.innerWidth;
 let innerWindowHeight = () => window.innerHeight;
@@ -16,13 +15,6 @@ for (let modalLink of modalLinks) {
             let modal = document.getElementById(popupId);
             showOrHideModal(modal);
         }
-    });
-}
-
-let modalClosers = document.querySelectorAll('.modal-closer');
-for (const modalCloser of modalClosers) {
-    modalCloser.addEventListener("click", function (e) {
-        closeModal(modalCloser.closest('.modal-window'), true);
     });
 }
 
@@ -176,18 +168,11 @@ function changeContentWidth(inputEvent) {
         element.style.width = newContentWidth + "px";
     });
 }
-function setToDefaultContentWidth() {
-
-}
 const albumElements = document.querySelectorAll('.album-element');
 const rangeInput = document.querySelector('#blockSizer');
 
 rangeInput.addEventListener('input', changeContentWidth);
-// rangeInput.addEventListener('mousedown', function (event) {
-//     if (event.which == 3) {
-//         
-//     }
-// });
+
 rangeInput.oncontextmenu = function (event) {
     if (event.which == 3) {
         albumElements.forEach(element => {

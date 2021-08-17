@@ -3,10 +3,21 @@
 <script type="module">
     import Swiper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
 
-    const swiper = new Swiper('.swiper-container', {
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+    const swiper = new Swiper('.photo-slider', {
+        // navigation: {
+        //     nextEl: ".swiper-button-next",
+        //     prevEl: ".swiper-button-prev",
+        // },
+        preloadImages: true,
+        lazy: {
+            loadOnTransitionStart: false,
+            loadPrevnext: true,
         },
+        autoplay:{
+            delay: 3000,
+        },
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
+        slidesPerView: 1,
     });
 </script>

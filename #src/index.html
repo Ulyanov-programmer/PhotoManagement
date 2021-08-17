@@ -25,11 +25,11 @@
                     </form>
                     <section class='menu sidepanel__element'>
                         <div class='menu__body'>
-                            <span data-spoiler-button class='menu__name spoiler-button'>categories</span>
+                            <span data-spoiler-button class='menu__name spoiler-button'>Categories</span>
                             <ul data-spoiler-content class="spoiler-content">
-                                <li class="menu__category">Photos</li>
-                                <li class="menu__category">Videos</li>
-                                <li class="menu__category">Projects</li>
+                                <li><a class="menu__category" href="#">Photos</a></li>
+                                <li><a class="menu__category" href="#">Videos</a></li>
+                                <li><a class="menu__category" href="#">Projects</a></li>
                             </ul>
                         </div>
                     </section>
@@ -37,10 +37,10 @@
                         <div class='menu__body'>
                             <span data-spoiler-button class='menu__name spoiler-button _expandable'>Albums</span>
                             <ul data-spoiler-content class="spoiler-content">
-                                <li class="menu__category">Subcarpathia 2016</li>
-                                <li class="menu__category">Summer 2015</li>
-                                <li class="menu__category">Aspen 2015</li>
-                                <li class="menu__category">Croatia 2015</li>
+                                <li><a class="menu__category" href="#">Subcarpathia 2016</a></li>
+                                <li><a class="menu__category" href="#">Summer 2015</a></li>
+                                <li><a class="menu__category" href="#">Aspen 2015</a></li>
+                                <li><a class="menu__category" href="#">Croatia 2015</a></li>
                             </ul>
                         </div>
                     </section>
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="general-buttons">
                                     <i class="general-button">
-                                        <img src="images/icons/Slideshow.png" alt="slideshow">
+                                        <img data-modal-link="sliderModal" src="images/icons/Slideshow.png" alt="slsw">
                                     </i>
                                     <i class="general-button icon">
                                         <img src="images/icons/Share.png" alt="slideshow">
@@ -71,37 +71,37 @@
                             </div>
 
                             <div class="album__content">
-                                <article class="album-element">
+                                <article class="album-element photo">
                                     <div class="album-element__preview">
                                         <img src="images/content/content1.jpg" alt="content">
                                     </div>
                                     <span class="album-element__create-date">25.02.2016</span>
                                 </article>
-                                <article class="album-element">
+                                <article class="album-element photo">
                                     <div class="album-element__preview">
                                         <img src="images/content/content1.jpg" alt="content">
                                     </div>
                                     <span class="album-element__create-date">25.02.2016</span>
                                 </article>
-                                <article class="album-element">
+                                <article class="album-element photo">
                                     <div class="album-element__preview">
                                         <img src="images/content/content1.jpg" alt="content">
                                     </div>
                                     <span class="album-element__create-date">25.02.2016</span>
                                 </article>
-                                <article class="album-element">
+                                <article class="album-element photo">
                                     <div class="album-element__preview">
                                         <img src="images/content/content1.jpg" alt="content">
                                     </div>
                                     <span class="album-element__create-date">25.02.2016</span>
                                 </article>
-                                <article class="album-element">
+                                <article class="album-element photo">
                                     <div class="album-element__preview">
                                         <img src="images/content/content1.jpg" alt="content">
                                     </div>
                                     <span class="album-element__create-date">25.02.2016</span>
                                 </article>
-                                <article class="album-element">
+                                <article class="album-element photo">
                                     <div class="album-element__preview">
                                         <img src="images/content/content1.jpg" alt="content">
                                     </div>
@@ -143,20 +143,26 @@
         </div>
     </main>
 
-    <section id="modal_1" class='modal-window'>
+    <section id="sliderModal" class='modal-window'>
         <div class="modal-window__body">
             <div class="modal-window__content">
-                <button type='button' class="modal-closer">close me</button>
-                <!-- ! Swiper
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                <div class="swiper-slide">
+                <div class="photo-slider swiper-container">
+                    <div class="photo-slider__wrapper swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="photo-slider__photo">
+                                <img data-src="images/content/content1.jpg" class="swiper-lazy" alt="">
                             </div>
+                            <div class="swiper-lazy-preloader"></div>
                         </div>
-                    </div> -->
+                        <div class="swiper-slide">
+                            <div class="photo-slider__photo">
+                                <img data-src="images/content/content2.jpg" class="swiper-lazy" alt="">
+                            </div>
+                            <div class="swiper-lazy-preloader"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
     </section>
 </body>
 @@include('_scripts.html')
