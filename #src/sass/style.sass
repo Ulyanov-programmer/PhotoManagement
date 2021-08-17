@@ -23,6 +23,8 @@ body
     &.fixed
         overflow: hidden
 
+        *
+
 .main
     width: 100%
 
@@ -34,19 +36,50 @@ body
         background: $background
 
 .content
+    margin: 20px 14px 20px 14px
     overflow: auto
+
     flex: 1 0 30%
 
     background: $secondBackground
+
+    /* firefox, i love You! */
+    scrollbar-width: thin
+    scrollbar-color: #b6b6b6 transparent
+    border-radius: 5px
+
+    /* for Chrome/Edge/Safari */
+    &::-webkit-scrollbar
+        height: auto
+        width: 6px
+    &::-webkit-scrollbar-track
+        background: transparent
+    &::-webkit-scrollbar-thumb
+        background-color: transparent
+        border-radius: 5px
+        border: 5px solid #b6b6b6
 
     &__body
 
 .sidepanel
     padding: 30px 0px 0px 0px
-    max-width: 220px
     min-width: 220px
     background: #272631
     overflow: auto
+    /* firefox, i love You! */
+    scrollbar-width: thin
+    scrollbar-color: #b6b6b6 transparent
+
+    /* for Chrome/Edge/Safari */
+    &::-webkit-scrollbar
+        height: auto
+        width: 6px
+    &::-webkit-scrollbar-track
+        background: transparent
+    &::-webkit-scrollbar-thumb
+        background-color: transparent
+        border-radius: 0px
+        border: 5px solid #b6b6b6
 
     &__body
         display: flex
@@ -70,6 +103,7 @@ body
         @include hAndW (80px,80px)
         border-radius: 50%
         margin: 0px 0px 18px 0px
+        object-fit: cover
 
     &__name
         @include adaptive-property ('font-size',16, 16)
@@ -81,9 +115,14 @@ body
         color: #a3a2a8
         margin: 0px 0px 17px 0px
 
+    input
+        display: none
+
     &__upluad-photo
         color: #fff
         text-transform: uppercase
+
+        cursor: pointer
         border: 2px solid $buttonColor
         background: $buttonColor
         padding: 10px 50px 10px 50px
@@ -95,6 +134,7 @@ body
             color: $buttonColor
 
 .searchbar
+    display: flex
     background: #19181e
     padding: 15px 15px 15px 15px
 
@@ -163,7 +203,7 @@ body
             background: url('../images/icons/bigger.png') no-repeat 100% / contain
 
 .album
-    padding: 30px 30px 30px 30px
+    padding: 10px 10px 10px 10px
 
     &__header
         display: flex
@@ -194,13 +234,22 @@ body
 
 .general-buttons
     .general-button
+        display: inline-block
+        @include hAndW (20px,20px)
+        margin: 0px 10px 0px 0px
+
+        cursor: pointer
+        transition: all 0.3s ease
+        &:hover
+            box-shadow: 0 0 5px rgba(0,0,0,0.5)
+
         img
-            @include hAndW (20px,20px)
+            @include hAndW (100%,100%)
 
 .album-element
     display: flex
     flex-flow: column nowrap
-    width: 300px
+    width: 260px
 
     margin: 10px 10px 10px 10px
 
