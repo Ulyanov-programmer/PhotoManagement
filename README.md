@@ -1,5 +1,8 @@
-# Default Project
-Default Project - my standard project to start any layout. It will be gradually updated and supplemented, this is not the final version.
+# PhotoManagement
+Photo Management - created for content editing.
+There is no editing logic, but there is an interface. And a slideshow! Don't forget the slideshow!
+
+<img src="readmeFiles/preview.png" width=100% />
 
 <details>
  <summary>RU Описание</summary>
