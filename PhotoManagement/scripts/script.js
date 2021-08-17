@@ -132,27 +132,30 @@ toggleToSpoilers();
 window.addEventListener(`resize`, toggleToSpoilers);;
 
 
-function prependActionsMenu(e) {
-    let targetProductBody = e.target.firstElementChild;
-    let prodActionsClone = productActionsMenu.cloneNode(true);
+function appendInfoModalMenu(e) {
+    let targetContentPreview = e.currentTarget;
+    let modalElementClone = modalElement.cloneNode(true);
 
-    prodActionsClone.classList.remove('_non-active');
+    modalElementClone.classList.remove('_non-active');
 
-    targetProductBody.prepend(prodActionsClone);
-    if (getInnerWigth() <= 768) {
-        prodActionsClone.classList.add('_active');
-    }
+    targetContentPreview.append(modalElementClone);
+    modalElementClone.classList.add('_active');
 }
-function removeActionsMenu(e) {
-    // Try to get menu from product => body => actions.
-    let actionsMenu = e.target.firstElementChild.firstElementChild;
+function removeInfoModalMenu(e) {
+    // Try to get modal block.
+    let modalMenu = e.currentTarget.lastElementChild;
 
-    if (actionsMenu.classList.contains("product-actions")) {
-        actionsMenu.classList.remove("_active")
+    if (modalMenu.classList.contains("modal-content-info")) {
+        modalMenu.classList.remove("_active")
         setTimeout(function () {
-            actionsMenu.remove();
+            modalMenu.remove();
         }, 200)
     }
 }
-// const productActionsMenu = document.querySelector('.product-actions');
-// const products = document.querySelectorAll('.product');
+const contentElements = document.querySelectorAll('.album-element__preview');
+const modalElement = document.querySelector('.modal-content-info');
+
+contentElements.forEach(element => {
+    element.addEventListener("mouseenter", appendInfoModalMenu);
+    element.addEventListener("mouseleave", removeInfoModalMenu);
+});

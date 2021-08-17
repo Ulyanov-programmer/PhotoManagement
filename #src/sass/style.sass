@@ -36,7 +36,7 @@ body
         background: $background
 
 .content
-    margin: 20px 14px 20px 14px
+    margin: 20px 14px 0px 14px
     overflow: auto
 
     flex: 1 0 30%
@@ -310,9 +310,16 @@ body
     justify-content: center
     align-items: center
     padding: 10px 28px 10px 28px
-    @include hAndW (20%,100%)
+    transform: translate(0,100%)
 
-    background: #a1a0a0e7
+    @include hAndW (20%,100%)
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+    transition: all 0.2s ease
+    background: #a1a0a0a1
+    overflow: hidden
+    opacity: 0
+    pointer-events: none
 
     &__body
         @include adaptive-property ('font-size',12, 12)
@@ -322,6 +329,8 @@ body
             margin: 0px 5px 0px 0px
 
     &._non-active
-        overflow: hidden
-        opacity: 0
-        pointer-events: none
+    &._active
+        overflow: visible
+        opacity: 1
+        pointer-events: all
+        transform: translate(0,0%)
