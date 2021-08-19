@@ -143,7 +143,7 @@ contentElements.forEach(element => {
 function changeContentWidthByWheel(inputEvent) {
     let elementsWasResized = albumElements[0].style.width !== "";
     let scrollFactor = -0.01;
-    if (inputEvent.deltaY < 100 /*for Firefox */) {
+    if (inputEvent.deltaY < 100 && inputEvent.deltaY > 0 || inputEvent.deltaY > -100 && inputEvent.deltaY < 0) {
         scrollFactor = -0.1;
     }
     // Takes resize (scroll) value and rounding to the integer.
