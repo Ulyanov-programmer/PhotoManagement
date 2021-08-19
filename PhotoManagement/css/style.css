@@ -483,8 +483,8 @@ body.fixed {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   background: #19181e;
   padding: 15px 15px 15px 15px;
 }
