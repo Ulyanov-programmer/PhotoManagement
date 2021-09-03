@@ -11,7 +11,6 @@ $buttonColor: #ea5a5a
 @import "mixins"
 @import "fonts"
 @import "iconFonts"
-@import "_spoiler"
 @import "rangeInput"
 
 body
@@ -22,8 +21,6 @@ body
 
     &.fixed
         overflow: hidden
-
-        *
 
 .main
     width: 100%
@@ -36,30 +33,30 @@ body
         background: $background
 
 .content
-    margin: 20px 14px 0px 14px
-    overflow: auto
+    z-index: 1
 
     flex: 1 0 30%
 
-    background: $secondBackground
-
-    /* firefox, i love You! */
-    scrollbar-width: thin
-    scrollbar-color: #b6b6b6 transparent
-    border-radius: 5px
-
-    /* for Chrome/Edge/Safari */
-    &::-webkit-scrollbar
-        height: auto
-        width: 6px
-    &::-webkit-scrollbar-track
-        background: transparent
-    &::-webkit-scrollbar-thumb
-        background-color: transparent
-        border-radius: 5px
-        border: 5px solid #b6b6b6
-
     &__body
+        margin: 0px 14px 0px 14px
+        background: $secondBackground
+
+        height: 100%
+        overflow: auto
+
+        scrollbar-width: thin
+        scrollbar-color: #b6b6b6 transparent
+        border-radius: 5px
+
+        &::-webkit-scrollbar
+            height: auto
+            width: 6px
+        &::-webkit-scrollbar-track
+            background: transparent
+        &::-webkit-scrollbar-thumb
+            background-color: transparent
+            border-radius: 5px
+            border: 5px solid #b6b6b6
 
 .sidepanel
     padding: 30px 0px 0px 0px
@@ -193,8 +190,6 @@ body
             @include hAndW (15px,15px)
             margin-right: 20px
             cursor: pointer
-            @media (max-height: 500px)
-                display: none
 
     &__category
         display: block
@@ -220,18 +215,18 @@ body
         &:before
             @include hAndW (20px,20px)
             content: ('')
-            background: url('../images/icons/smaller.png') no-repeat 100% / contain
+            background: url('../images/icons/bigger.png') no-repeat 100% / contain
 
         &::after
             @include hAndW (20px,20px)
             content: ('')
-            background: url('../images/icons/bigger.png') no-repeat 100% / contain
+            background: url('../images/icons/smaller.png') no-repeat 100% / contain
 
 .album
     &__header
         display: flex
         justify-content: space-between
-        padding: 0px 0px 5px 0px
+        padding: 0px 0px 15px 0px
 
     &__body
         display: flex
@@ -245,6 +240,7 @@ body
 
     &__count
         color: #c0c0c0
+        margin: 0px 0px 0px 5px
 
         &:before
             content: '('
@@ -252,15 +248,20 @@ body
             content: ' photos)'
 
     &__content
+        display: grid
+        grid-template: auto / repeat(5, 1fr)
+        gap: 15px
+    &__about
         display: flex
+        justify-content: center
+        align-items: flex-end
         flex-flow: row wrap
-        margin: 0px -10px 0px -10px
 
 .general-buttons
     .general-button
         display: inline-block
         @include hAndW (20px,20px)
-        margin: 0px 10px 0px 0px
+        margin: 3px 10px 3px 3px
 
         cursor: pointer
         transition: all 0.3s ease
@@ -271,12 +272,6 @@ body
             @include hAndW (100%,100%)
 
 .album-element
-    display: flex
-    flex-flow: column nowrap
-    width: 260px
-
-    margin: 10px 10px 10px 10px
-
     &__preview
         display: block
         border-radius: 5px
@@ -336,7 +331,7 @@ body
     padding: 10px 28px 10px 28px
     transform: translate(0,20px) scale(0,0)
 
-    @include hAndW (15%,100%)
+    @include hAndW (20%,100.1%)
     border-top-left-radius: 0
     border-top-right-radius: 0
     transition: all 0.3s ease
@@ -345,23 +340,36 @@ body
     opacity: 0
     pointer-events: none
 
+    @media (max-width: 1150px)
+        position: fixed
+        bottom: 0
+        z-index: 5
+        height: max-content !important
+        background: #a1a0a0
+
     &__body
         letter-spacing: 0.6px
         @include adaptive-property ('font-size',13, 11)
 
+        @media (max-width: 1150px)
+            text-align: center
+
     span
         margin: 0px 5px 0px 0px
+        line-height: 1.2
 
-    &._non-active
     &._active
         overflow: visible
         opacity: 1
         pointer-events: all
         transform: translate(0,0) scale(1,1)
 
-    .photo-slider
-
-        &__wrapper
+        @media (max-width: 1150px)
+            border-radius: 0
+            width: 25% !important
+            justify-content: center
+            left: 75%
+            padding: 20px 20px 20px 20px
 
 .photo-slider
     height: 100%
