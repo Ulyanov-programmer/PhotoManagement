@@ -7,20 +7,15 @@ let innerWindowHeight = () => window.innerHeight;
 
 
 function appendInfoModalMenu(e) {
-    if (innerWindowWidth() >= 900) {
-        let targetContentPreview = e.currentTarget;
-        let modalElementClone = modalElement.cloneNode(true);
+    let targetContentPreview = e.currentTarget;
+    let modalElementClone = modalElement.cloneNode(true);
 
-        modalElementClone.classList.remove('_non-active');
+    modalElementClone.classList.remove('_non-active');
 
-        targetContentPreview.append(modalElementClone);
-        setTimeout(function () {
-            modalElementClone.classList.add('_active');
-            if (innerWindowWidth() < 1150) {
-                modalElementClone.classList.add('bigger');
-            }
-        }, 30)
-    }
+    targetContentPreview.append(modalElementClone);
+    setTimeout(function () {
+        modalElementClone.classList.add('_active');
+    }, 50)
 }
 function removeInfoModalMenu(e) {
     // Try to get modal block.
@@ -82,7 +77,7 @@ if (localStorage.getItem("defaultColumnsCount") !== null) {
     }
 } else {
     // Enter here value from album__content => grid-template-columns
-    rangeInput.value = 3;
+    rangeInput.value = 5;
 }
 rangeInput.addEventListener('input', changeAlbumGrid);
 rangeInput.onwheel = (arg) => {

@@ -274,30 +274,32 @@ body.fixed {
 }
 
 .content {
-  margin: 20px 14px 0px 14px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  z-index: 1;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 30%;
           flex: 1 0 30%;
+}
+
+.content__body {
+  margin: 0px 14px 0px 14px;
   background: #fafafa;
-  /* firefox, i love You! */
+  height: 100%;
+  overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: #b6b6b6 transparent;
   border-radius: 5px;
-  /* for Chrome/Edge/Safari */
 }
 
-.content::-webkit-scrollbar {
+.content__body::-webkit-scrollbar {
   height: auto;
   width: 6px;
 }
 
-.content::-webkit-scrollbar-track {
+.content__body::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.content::-webkit-scrollbar-thumb {
+.content__body::-webkit-scrollbar-thumb {
   background-color: transparent;
   border-radius: 5px;
   border: 5px solid #b6b6b6;
@@ -592,7 +594,7 @@ body.fixed {
 
 .album__content {
   display: grid;
-  grid-template: auto/repeat(3, 1fr);
+  grid-template: auto/repeat(5, 1fr);
   gap: 15px;
 }
 
@@ -727,12 +729,6 @@ body.fixed {
   pointer-events: none;
 }
 
-.modal-content-info.bigger {
-  padding: 10px 3px 10px 3px;
-  height: 40%;
-  width: 100.1%;
-}
-
 .modal-content-info__body {
   letter-spacing: 0.6px;
   font-size: calc(11px + (13 - 11) * ((100vw - 320px) / (1200 - 320)));
@@ -772,6 +768,32 @@ body.fixed {
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+@media (max-width: 1150px) {
+  .modal-content-info {
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+    height: -webkit-max-content !important;
+    height: -moz-max-content !important;
+    height: max-content !important;
+    background: #a1a0a0;
+  }
+
+  .modal-content-info__body {
+    text-align: center;
+  }
+
+  .modal-content-info._active {
+    border-radius: 0;
+    width: 25% !important;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    left: 75%;
+    padding: 20px 20px 20px 20px;
+  }
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
