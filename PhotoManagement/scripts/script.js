@@ -74,52 +74,23 @@ document.addEventListener('keydown', function (key) {
 });
 
 ;
-let spoilerButtons = document.querySelectorAll('[data-spoiler-button]');
-let spoilerContentElements = document.querySelectorAll('[data-spoiler-content]');
-
-function toggleToSpoilers(e) {
-    if (spoilerContentElements.length > 0 &&
-        spoilerButtons.length == spoilerContentElements.length) {
-        for (let index = 0; index < spoilerContentElements.length; index++) {
-
-            if (innerWindowHeight() <= 500) {
-                spoilerContentElements[index].classList.add('spoiler-content');
-                spoilerButtons[index].classList.add('spoiler-button');
-            } else {
-                spoilerContentElements[index].classList.remove('spoiler-content');
-                spoilerButtons[index].classList.remove('spoiler-button');
-            }
-        }
-
-        for (let spoilerButton of spoilerButtons) {
-            spoilerButton.addEventListener('click', toggleSpoilerState);
-        }
-    }
-}
-
-function toggleSpoilerState(event) {
-    let targetSpoilerButton = event.target;
-    let spoilerContainer = targetSpoilerButton.nextElementSibling;
-
-    targetSpoilerButton.classList.toggle('active');
-    spoilerContainer.classList.toggle('active');
-}
-
-// Determines spoilers when the page is loaded and when it is resized.
-toggleToSpoilers();
-window.addEventListener(`resize`, toggleToSpoilers);;
 
 
 function appendInfoModalMenu(e) {
-    let targetContentPreview = e.currentTarget;
-    let modalElementClone = modalElement.cloneNode(true);
+    if (innerWindowWidth() >= 900) {
+        let targetContentPreview = e.currentTarget;
+        let modalElementClone = modalElement.cloneNode(true);
 
-    modalElementClone.classList.remove('_non-active');
+        modalElementClone.classList.remove('_non-active');
 
-    targetContentPreview.append(modalElementClone);
-    setTimeout(function () {
-        modalElementClone.classList.add('_active');
-    }, 30)
+        targetContentPreview.append(modalElementClone);
+        setTimeout(function () {
+            modalElementClone.classList.add('_active');
+            if (innerWindowWidth() < 1150) {
+                modalElementClone.classList.add('bigger');
+            }
+        }, 30)
+    }
 }
 function removeInfoModalMenu(e) {
     // Try to get modal block.
@@ -140,73 +111,60 @@ contentElements.forEach(element => {
     element.addEventListener("mouseleave", removeInfoModalMenu);
 });
 
-function changeContentWidthByWheel(inputEvent) {
-    let elementsWasResized = albumElements[0].style.width !== "";
-    let scrollFactor = -0.01;
-    if (inputEvent.deltaY < 100 && inputEvent.deltaY > 0 || inputEvent.deltaY > -100 && inputEvent.deltaY < 0) {
-        scrollFactor = -0.1;
-    }
-    // Takes resize (scroll) value and rounding to the integer.
-    // You can change the step by changing the value scrollFactor.
-    
-    let changeSize = parseInt(inputEvent.deltaY * scrollFactor);
+const inputStep = 1;
+const albumElements = document.querySelectorAll('.album__content');
+const rangeInput = document.getElementById('blockSizer');
 
-    let oldContentWidth = albumContentWidth;
-    if (elementsWasResized) {
-        oldContentWidth = parseInt(albumElements[0].style.width.replace("px", ""));
-    }
-    let newContentWidth;
+function changeAlbumGrid(inputEvent, increaseOrDecrease, newColumnsCount) {
+    let input = inputEvent.currentTarget;
 
-    if (changeSize >= 0) {
-        newContentWidth = oldContentWidth + changeSize;
+    if (newColumnsCount > 1 && newColumnsCount < 6) {
+        input.value = newColumnsCount;
     } else {
-        newContentWidth = oldContentWidth - Math.abs(changeSize);
-    }
-    // Does not allow you to change the size 
-    // if it is below the permissible values of min and max in the range input.
-    if (newContentWidth <= albumContentWidth + 102 && newContentWidth >= albumContentWidth - 102) {
-        albumElements.forEach(element => {
-            element.style.width = newContentWidth + "px";
-        });
-        // Changes the position of the slider.
-        if (changeSize <= 0) {
-            inputEvent.target.value = parseInt(inputEvent.target.value) - Math.abs(changeSize);
-        } else {
-            inputEvent.target.value = parseInt(inputEvent.target.value) + changeSize;
+        if (increaseOrDecrease === true) {
+            input.value = parseInt(input.value) + inputStep;
+        }
+        else if (increaseOrDecrease === false) {
+            input.value = parseInt(input.value) - inputStep;
         }
     }
-}
 
-function changeContentWidthByClick(inputEvent) {
-    let changeSize = parseInt(inputEvent.currentTarget.value);
-    let newContentWidth;
-
-    if (changeSize >= 0) {
-        newContentWidth = albumContentWidth + changeSize;
-    } else {
-        changeSize = Math.abs(changeSize)
-        newContentWidth = albumContentWidth - changeSize;
+    localStorage.setItem("defaultColumnsCount", `${input.value}`);
+    for (const element of albumElements) {
+        element.style.gridTemplateColumns = `repeat(${input.value}, 1fr)`;
     }
-
-    albumElements.forEach(element => {
-        element.style.width = newContentWidth + "px";
-    });
 }
-let albumContentWidth = 260;
-const albumElements = document.querySelectorAll('.album-element');
-const rangeInput = document.querySelector('#blockSizer');
 
-rangeInput.addEventListener('input', changeContentWidthByClick);
+function returnChangeGridByWheel(wheelEvent) {
+    let changeSize = parseInt(wheelEvent.deltaY);
+
+    if (changeSize <= 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+if (localStorage.getItem("defaultColumnsCount") !== null) {
+    rangeInput.value = localStorage.getItem("defaultColumnsCount");
+    for (const element of albumElements) {
+        element.style.gridTemplateColumns = `repeat(${rangeInput.value}, 1fr)`;
+    }
+} else {
+    // Enter here value from album__content => grid-template-columns
+    rangeInput.value = 3;
+}
+rangeInput.addEventListener('input', changeAlbumGrid);
 rangeInput.onwheel = (arg) => {
-    changeContentWidthByWheel(arg);
+    let increaseOrDecrease = returnChangeGridByWheel(arg);
+
+    changeAlbumGrid(arg, increaseOrDecrease);
+
     return false;
 }
 rangeInput.oncontextmenu = (event) => {
     if (event.which == 3) {
-        albumElements.forEach(element => {
-            element.style.width = '';
-        });
-        rangeInput.value = 0;
+        changeAlbumGrid(event, null, 4);
     }
     return false;
 }
